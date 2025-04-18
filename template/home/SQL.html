@@ -1,0 +1,1129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Learn SQL basics with sw|edu! Understand database concepts, simple queries, and foundational SQL commands through easy-to-follow tutorials and examples. Start learning SQL today!">
+   <meta name="keywords" content="SQL basics, learn SQL online, SQL tutorials for beginners, simple SQL queries, introduction to SQL, beginner SQL commands, SQL step-by-step guides, SQL examples, relational databases, learn SQL from scratch, SQL fundamentals, sw|edu">
+   <meta name="author" content="sw|edu">
+   <title>Learn SQL Basics: A Beginner's Guide</title>
+
+
+     <link rel="stylesheet" href="{% static 'css/SQL.css' %}">
+  </head>
+  <body>
+    <div id="web">
+      <div class="container">
+        <header  style="position: fixed;padding-top: 12px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         " class="navigation">
+          <img src="{% static 'images/logo.png' %}" alt="SW edu Logo" class="navigation-logo" style="height:95px;padding-left:2px ;  width: 110px;">
+
+          <div class="menu-toggle" onclick="toggleMenu()" style="  padding-right:7px;">
+            <img src="{% static 'images/menu.png' %}" alt="menu-toggle" style="margin: 16px 5px 0 0; padding: 2px;  width: 35px;   ">
+          </div>
+          <nav class="menu" style=" padding-right: 20px;">
+            <a href="home">Home</a>
+            <a href="java_home">Java</a>
+            <a href="SQL_home">SQL</a>
+            <a href="python_home">Python</a>
+            <a href="signin">Login</a>
+            <button class="signUp-button">
+                <a  href="signup">Sign Up</a>
+            </button>
+          </nav>
+        </header>
+
+
+        <section class="content">
+          <h1>SQL Basics Tutorial</h1>
+          <h1><a style="  color: rgb(250, 91, 48); " href="#topics" onclick="showTopic('topics')">View Topics</a></h1>
+
+
+          <div class="topic active" id="topics">
+            <h4><a href="#sql-introduction" onclick="showTopic('sql-introduction')">1. SQL Introduction</a></h4>
+            <h4><a href="#sql-syntax" onclick="showTopic('sql-syntax')">2. SQL Syntax</a></h4>
+            <h4><a href="#sql-select" onclick="showTopic('sql-select')">3. SQL SELECT</a></h4>
+            <h4><a href="#sql-select-distinct" onclick="showTopic('sql-select-distinct')">4. SQL SELECT DISTINCT</a></h4>
+            <h4><a href="#sql-where" onclick="showTopic('sql-where')">5. SQL WHERE</a></h4>
+            <h4><a href="#sql-order-by" onclick="showTopic('sql-order-by')">6. SQL ORDER BY</a></h4>
+            <h4><a href="#sql-and-or-not" onclick="showTopic('sql-and-or-not')">7. SQL AND, OR, NOT</a></h4>
+            <h4><a href="#sql-insert-into" onclick="showTopic('sql-insert-into')">8. SQL INSERT INTO</a></h4>
+            <h4><a href="#sql-null-values" onclick="showTopic('sql-null-values')">9. SQL NULL VALUES</a></h4>
+            <h4><a href="#sql-update" onclick="showTopic('sql-update')">10. SQL UPDATE</a></h4>
+            <h4><a href="#sql-delete" onclick="showTopic('sql-delete')">11. SQL DELETE</a></h4>
+            <h4><a href="#sql-select-top" onclick="showTopic('sql-select-top')">12. SQL SELECT TOP</a></h4>
+            <h4><a href="#sql-aggregate-functions" onclick="showTopic('sql-aggregate-functions')">13. SQL Aggregate Functions</a></h4>
+            <h4><a href="#sql-min-max" onclick="showTopic('sql-min-max')">14. SQL MIN and MAX</a></h4>
+            <h4><a href="#sql-count" onclick="showTopic('sql-count')">15. SQL COUNT</a></h4>
+            <h4><a href="#sql-sum" onclick="showTopic('sql-sum')">16. SQL SUM</a></h4>
+            <h4><a href="#sql-avg" onclick="showTopic('sql-avg')">17. SQL AVG</a></h4>
+            <h4><a href="#sql-like" onclick="showTopic('sql-like')">18. SQL LIKE</a></h4>
+            <h4><a href="#sql-wildcards" onclick="showTopic('sql-wildcards')">19. SQL Wildcards</a></h4>
+            <h4><a href="#sql-in" onclick="showTopic('sql-in')">20. SQL IN</a></h4>
+            <h4><a href="#sql-between" onclick="showTopic('sql-between')">21. SQL BETWEEN</a></h4>
+            <h4><a href="#sql-aliases" onclick="showTopic('sql-aliases')">22. SQL Aliases</a></h4>
+            <h4><a href="#sql-joins" onclick="showTopic('sql-joins')">23. SQL Joins</a></h4>
+            <h4><a href="#sql-inner-join" onclick="showTopic('sql-inner-join')">24. SQL INNER JOIN</a></h4>
+            <h4><a href="#sql-left-join" onclick="showTopic('sql-left-join')">25. SQL LEFT JOIN</a></h4>
+            <h4><a href="#sql-right-join" onclick="showTopic('sql-right-join')">26. SQL RIGHT JOIN</a></h4>
+            <h4><a href="#sql-full-join" onclick="showTopic('sql-full-join')">27. SQL FULL JOIN</a></h4>
+            <h4><a href="#sql-self-join" onclick="showTopic('sql-self-join')">28. SQL SELF JOIN</a></h4>
+            <h4><a href="#sql-union" onclick="showTopic('sql-union')">29. SQL UNION</a></h4>
+            <h4><a href="#sql-group-by" onclick="showTopic('sql-group-by')">30. SQL GROUP BY</a></h4>
+            <h4><a href="#sql-having" onclick="showTopic('sql-having')">31. SQL HAVING</a></h4>
+            <h4><a href="#sql-exists" onclick="showTopic('sql-exists')">32. SQL EXISTS</a></h4>
+            <h4><a href="#sql-any-all" onclick="showTopic('sql-any-all')">33. SQL ANY and ALL</a></h4>
+            <h4><a href="#sql-select-into" onclick="showTopic('sql-select-into')">34. SQL SELECT INTO</a></h4>
+            <h4><a href="#sql-insert-into-select" onclick="showTopic('sql-insert-into-select')">35. SQL INSERT INTO SELECT</a></h4>
+            <h4><a href="#sql-case" onclick="showTopic('sql-case')">36. SQL CASE</a></h4>
+            <h4><a href="#sql-null-functions" onclick="showTopic('sql-null-functions')">37. SQL NULL Functions</a></h4>
+            <h4><a href="#sql-stored-procedures" onclick="showTopic('sql-stored-procedures')">38. SQL Stored Procedures</a></h4>
+            <h4><a href="#sql-comments" onclick="showTopic('sql-comments')">39. SQL Comments</a></h4>
+            <h4><a href="#sql-operators" onclick="showTopic('sql-operators')">40. SQL Operators</a></h4>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-introduction">
+          <h2>1. SQL Introduction</h2>
+          <p>
+              SQL (Structured Query Language) is the standard language for interacting with relational databases. It is used to create, read, update, and delete data.
+          </p>
+          <h3>How to Start with SQL</h3>
+          <p>
+              To start using SQL, you'll need to set up a database management system (DBMS) that supports SQL. Here are some popular options:
+          </p>
+          <ul>
+              <li><strong>MySQL:</strong> A widely used open-source relational database. You can download it from the <a href="https://www.mysql.com/downloads/">MySQL website</a>.</li>
+              <li><strong>PostgreSQL:</strong> An advanced open-source relational database known for its robustness. Download it from the <a href="https://www.postgresql.org/download/">PostgreSQL website</a>.</li>
+              <li><strong>SQLite:</strong> A lightweight, serverless database that's easy to set up. You can download it from the <a href="https://www.sqlite.org/download.html">SQLite website</a>.</li>
+              <li><strong>Microsoft SQL Server:</strong> A popular database system for enterprise applications. Download the Express version for free from the <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">Microsoft website</a>.</li>
+          </ul>
+          <h3>Setting Up SQL</h3>
+          <p>
+              After downloading a DBMS, follow these general steps to set it up:
+          </p>
+          <ol>
+              <li>Run the installer and follow the prompts to install the software.</li>
+              <li>Configure the database settings as needed (e.g., setting a root password).</li>
+              <li>Launch the database management interface (like MySQL Workbench, pgAdmin, etc.) to start interacting with your database.</li>
+          </ol>
+          <h3>Basic SQL Commands</h3>
+          <p>
+              Once your database is set up, you can start executing SQL commands. Here are a few basic commands to get you started:
+          </p>
+          <ul>
+              <li><strong>CREATE:</strong> To create a new table.</li>
+              <li><strong>SELECT:</strong> To retrieve data from a table.</li>
+              <li><strong>INSERT:</strong> To add new data to a table.</li>
+              <li><strong>UPDATE:</strong> To modify existing data in a table.</li>
+              <li><strong>DELETE:</strong> To remove data from a table.</li>
+          </ul>
+          <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+          </div>
+      </div>
+
+
+        <div class="topic" id="sql-syntax">
+            <h2>2. SQL Syntax</h2>
+            <p>The basic syntax of SQL involves using various commands like SELECT, INSERT, UPDATE, and DELETE to interact with the database.</p>
+
+            <h3>Common SQL Commands</h3>
+            <ul>
+                <li><strong>SELECT:</strong> Used to select data from a database.
+                    <pre><code>SELECT * FROM students;</code></pre>
+                    <p><strong>'*'</strong> -symbol is called the "asterisk," and it is used as a wildcard to indicate "all columns" when querying data from a table</p>
+                    <p><strong>Output:</strong></p>
+                    <pre style="color: green;"><code>
+        id  | name      | age | grade
+        -----------------------------
+        1   | John Doe  | 20  | A
+        2   | Jane Smith| 21  | B
+        3   | Alice Brown| 22 | A
+                    </code></pre>
+                </li>
+                <li><strong>INSERT:</strong> Used to insert new data into a database.
+                    <pre><code>INSERT INTO students (name, age, grade) VALUES ('Bob Johnson', 23, 'B');</code></pre>
+                    <p><strong>Output:</strong></p>
+                    <pre style="color: green;"><code>1 row inserted.</code></pre>
+                </li>
+                <li><strong>UPDATE:</strong> Used to modify existing data in a database.
+                    <pre><code>UPDATE students SET grade = 'A' WHERE name = 'Jane Smith';</code></pre>
+                    <p><strong>Output:</strong></p>
+                    <pre style="color: green;"><code>1 row updated.</code></pre>
+                </li>
+                <li><strong>DELETE:</strong> Used to delete existing data from a database.
+                    <pre><code>DELETE FROM students WHERE name = 'Alice Brown';</code></pre>
+                    <p><strong>Output:</strong></p>
+                    <pre style="color: green;"><code>1 row deleted.</code></pre>
+                </li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+
+        <div class="topic" id="sql-select">
+            <h2>3. SQL SELECT</h2>
+            <p>The SELECT statement is used to query the database and retrieve data from one or more tables.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | ContactName | Country
+        ---------------------------------------------------
+        1          | Alfreds Futterkiste | Maria Anders  | Germany
+        2          | Ana Trujillo Emparedados y helados | Ana Trujillo | Mexico
+        3          | Antonio Moreno Taquería | Antonio Moreno | Mexico
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-select-distinct">
+            <h2>4. SQL SELECT DISTINCT</h2>
+            <p>The SELECT DISTINCT statement is used to return only distinct (different) values in the result set.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT DISTINCT Country FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        Country
+        --------
+        USA
+        Germany
+        Mexico
+        France
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-where">
+            <h2>5. SQL WHERE</h2>
+            <p>The WHERE clause is used to filter records based on specific conditions.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers WHERE Country='Germany';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName          | ContactName | Country
+        ---------------------------------------------------------
+        1          | Alfreds Futterkiste   | Maria Anders | Germany
+        5          | Cactus Comidas        | Patricio Simpson | Germany
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-order-by">
+            <h2>6. SQL ORDER BY</h2>
+            <p>The ORDER BY statement is used to sort the result set in ascending or descending order.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers ORDER BY Country ASC;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName          | ContactName | Country
+        ---------------------------------------------------------
+        1          | Alfreds Futterkiste   | Maria Anders | Germany
+        3          | Antonio Moreno Taquería | Antonio Moreno | Mexico
+        2          | Ana Trujillo Emparedados y helados | Ana Trujillo | Mexico
+        4          | Berglunds snabbköp    | Christina Berglund | Sweden
+        5          | Cactus Comidas        | Patricio Simpson | Germany
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-and-or-not">
+            <h2>7. SQL AND, OR, NOT</h2>
+            <p>These logical operators are used to filter records based on more than one condition.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers WHERE Country='Germany' AND City='Berlin';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName        | ContactName | Country | City
+        -----------------------------------------------------------------
+        1          | Alfreds Futterkiste | Maria Anders | Germany | Berlin
+            </code></pre>
+
+            <h3>Using OR Operator</h3>
+            <pre><code>SELECT * FROM Customers WHERE Country='Germany' OR Country='USA';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName        | ContactName | Country
+        -----------------------------------------------------------------
+        1          | Alfreds Futterkiste | Maria Anders | Germany
+        2          | Ana Trujillo Emparedados y helados | Ana Trujillo | Mexico
+        3          | Antonio Moreno Taquería | Antonio Moreno | Mexico
+        4          | Berglunds snabbköp    | Christina Berglund | Sweden
+        5          | Cactus Comidas        | Patricio Simpson | Germany
+            </code></pre>
+
+            <h3>Using NOT Operator</h3>
+            <pre><code>SELECT * FROM Customers WHERE NOT Country='Germany';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName        | ContactName | Country
+        -----------------------------------------------------------------
+        2          | Ana Trujillo Emparedados y helados | Ana Trujillo | Mexico
+        3          | Antonio Moreno Taquería | Antonio Moreno | Mexico
+        4          | Berglunds snabbköp    | Christina Berglund | Sweden
+        5          | Cactus Comidas        | Patricio Simpson | Germany
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-insert-into">
+            <h2>8. SQL INSERT INTO</h2>
+            <p>The INSERT INTO statement is used to add new records to a table.</p>
+
+            <h3>Example</h3>
+            <pre><code>INSERT INTO Customers (CustomerName, Country) VALUES ('Cardinal', 'Germany');</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>1 row inserted.</code></pre>
+
+            <h3>Verifying the Insertion</h3>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName='Cardinal';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Country
+        -------------------------------------
+        6          | Cardinal     | Germany
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-null-values">
+            <h2>9. SQL NULL VALUES</h2>
+            <p>NULL is a special marker used to indicate that a data value does not exist in the database.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers WHERE Address IS NULL;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName        | Country  | Address
+        -----------------------------------------------------
+        3          | Antonio Moreno Taquería | Mexico   | NULL
+        5          | Cactus Comidas        | Germany  | NULL
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-update">
+            <h2>10. SQL UPDATE</h2>
+            <p>The UPDATE statement is used to modify existing records in a table.</p>
+
+            <h3>Example</h3>
+            <pre><code>UPDATE Customers SET City='Berlin' WHERE CustomerName='Cardinal';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>1 row updated.</code></pre>
+
+            <h3>Verifying the Update</h3>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName='Cardinal';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Country  | City
+        -----------------------------------------------
+        6          | Cardinal     | Germany  | Berlin
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-delete">
+            <h2>11. SQL DELETE</h2>
+            <p>The DELETE statement is used to remove existing records from a table.</p>
+
+            <h3>Example</h3>
+            <pre><code>DELETE FROM Customers WHERE CustomerName='Cardinal';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>1 row deleted.</code></pre>
+
+            <h3>Verifying the Deletion</h3>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName='Cardinal';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Country  | City
+        -----------------------------------------------
+        (0 rows affected)
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-select-top">
+            <h2>12. SQL SELECT TOP</h2>
+            <p>The SELECT TOP statement is used to specify the number of records to return.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT TOP 5 * FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName        | Country   | City
+        -----------------------------------------------------
+        1          | Alfreds Futterkiste | Germany   | Berlin
+        2          | Ana Trujillo Emparedados y helados | Mexico    | Mexico City
+        3          | Antonio Moreno Taquería | Mexico   | Mexico City
+        4          | Berglunds snabbköp    | Sweden    | Luleå
+        5          | Cactus Comidas        | Germany   | Berlin
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-aggregate-functions">
+            <h2>13. SQL Aggregate Functions</h2>
+            <p>Aggregate functions perform a calculation on a set of values and return a single value.</p>
+            <div>
+                <ul>
+                    <li><strong>COUNT:</strong> Returns the number of rows.</li>
+                    <li><strong>SUM:</strong> Returns the total sum of a numeric column.</li>
+                    <li><strong>AVG:</strong> Returns the average value of a numeric column.</li>
+                    <li><strong>MIN:</strong> Returns the smallest value.</li>
+                    <li><strong>MAX:</strong> Returns the largest value.</li>
+                </ul>
+            </div>
+
+            <h3>Examples</h3>
+
+            <h4>COUNT Example</h4>
+            <pre><code>SELECT COUNT(*) FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>10</code></pre>
+
+            <h4>SUM Example</h4>
+            <pre><code>SELECT SUM(OrderAmount) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>5000.00</code></pre>
+
+            <h4>AVG Example</h4>
+            <pre><code>SELECT AVG(OrderAmount) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>500.00</code></pre>
+
+            <h4>MIN Example</h4>
+            <pre><code>SELECT MIN(OrderAmount) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>100.00</code></pre>
+
+            <h4>MAX Example</h4>
+            <pre><code>SELECT MAX(OrderAmount) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>1000.00</code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-min-max">
+            <h2>14. SQL MIN and MAX</h2>
+            <p>The MIN() and MAX() functions return the minimum and maximum values of a selected column.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT MIN(Age) AS Youngest, MAX(Age) AS Oldest FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        Youngest | Oldest
+        ---------------------
+        18       | 75
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-count">
+            <h2>15. SQL COUNT</h2>
+            <p>The COUNT() function returns the number of rows that match a specified criterion.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT COUNT(*) FROM Customers WHERE Country='Germany';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>5</code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-sum">
+            <h2>16. SQL SUM</h2>
+            <p>The SUM() function returns the total sum of a numeric column.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT SUM(Price) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>2500.00</code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-avg">
+            <h2>17. SQL AVG</h2>
+            <p>The AVG() function returns the average value of a numeric column.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT AVG(Price) FROM Orders;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>250.00</code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-like">
+            <h2>18. SQL LIKE</h2>
+            <p>The LIKE operator is used to search for a specified pattern in a column. It allows for partial matching of strings using wildcards.</p>
+
+            <h3>Wildcards Used with LIKE</h3>
+            <p>1. <strong>%</strong> (Percent Sign) - Represents zero, one, or multiple characters.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE 'a%';</code></pre>
+            <p>This query retrieves all customers whose names start with 'a'. For example, 'Andrew', 'Alice', and 'Amanda'.</p>
+
+            <p>2. <strong>_</strong> (Underscore) - Represents a single character.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '_n%';</code></pre>
+            <p>This query retrieves all customers whose name has 'n' as the second character. For example, 'Andrew' or 'Bend'.</p>
+
+            <p>3. <strong>[]</strong> (Square Brackets) - Matches any single character within the brackets.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '[A-C]%';</code></pre>
+            <p>This query retrieves all customers whose names start with a letter from A to C.</p>
+
+            <p>4. <strong>[^]</strong> (Caret in Brackets) - Matches any single character not in the brackets.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '[^A-C]%';</code></pre>
+            <p>This query retrieves all customers whose names do not start with A, B, or C.</p>
+
+            <h3>Examples</h3>
+            <p>Example 1: Searching for names that start with 'a':</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE 'a%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Andrew
+            2          | Alice
+            3          | Amanda
+            </code></pre>
+
+            <p>Example 2: Searching for names that contain 'and':</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '%and%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Andrew
+            2          | Amanda
+            </code></pre>
+
+            <p>Example 3: Searching for names that end with 'a':</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '%a';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Amanda
+            2          | Anna
+            </code></pre>
+
+            <h3>Case Sensitivity</h3>
+            <p>By default, the LIKE operator is case-insensitive in most SQL databases (such as MySQL). However, it can be case-sensitive depending on the database collation settings (like in SQL Server).</p>
+
+            <h3>Performance Considerations</h3>
+            <p>Using the LIKE operator with leading wildcards (e.g., '%pattern%') may result in slow queries, as it doesn't take advantage of indexes.</p>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-wildcards">
+            <h2>19. SQL Wildcards</h2>
+            <p>Wildcards are special characters used with the LIKE operator to substitute for unknown characters in SQL queries. The two most common wildcards are:</p>
+            <pre><code>
+            % - Represents zero or more characters
+            _ - Represents a single character
+            </code></pre>
+
+            <h3>Examples of Using Wildcards</h3>
+
+            <p>Example 1: Using `%` to match any string that starts with 'A'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE 'A%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Andrew
+            2          | Alice
+            3          | Amanda
+            4          | Angela
+            </code></pre>
+
+            <p>Example 2: Using `_` to match any string where the second letter is 'n'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '_n%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Andrew
+            2          | Ben
+            3          | Tony
+            </code></pre>
+
+            <p>Example 3: Using `%` at the beginning to find customers whose names end with 'a'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '%a';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Amanda
+            2          | Sophia
+            </code></pre>
+
+            <p>Example 4: Using `_` to match any name where the first character is 'A' and the second character is 'n'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE 'An_';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Andy
+            2          | Ann
+            </code></pre>
+
+            <p>Example 5: Using square brackets to match a character within a range. Find names starting with 'A', 'B', or 'C'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '[A-C]%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | Alice
+            2          | Bob
+            3          | Charlie
+            </code></pre>
+
+            <p>Example 6: Using `[^]` to match names that do not start with 'A', 'B', or 'C'.</p>
+            <pre><code>SELECT * FROM Customers WHERE CustomerName LIKE '[^A-C]%';</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerID | CustomerName
+            --------------------------
+            1          | David
+            2          | Emily
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+
+        <div class="topic" id="sql-in">
+            <h2>20. SQL IN</h2>
+            <p>The IN operator allows you to specify multiple values in a WHERE clause.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers WHERE Country IN ('Germany', 'France');</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Country
+        --------------------------------------
+        1          | Hans         | Germany
+        2          | Pierre       | France
+        3          | Anna         | Germany
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-between">
+            <h2>21. SQL BETWEEN</h2>
+            <p>The BETWEEN operator is used to filter the result set within a certain range.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers WHERE Age BETWEEN 30 AND 40;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Age
+        ---------------------------------
+        1          | John         | 32
+        2          | Sarah        | 35
+        3          | Mark         | 40
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-aliases">
+            <h2>22. SQL Aliases</h2>
+            <p>Aliases are used to give a table or a column a temporary name.</p>
+
+            <h3>Example</h3>
+            <pre><code>SELECT CustomerName AS Name FROM Customers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        Name
+        --------
+        John Doe
+        Jane Smith
+        Mike Johnson
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-joins">
+            <h2>23. SQL Joins</h2>
+            <p>Joins are used to combine rows from two or more tables based on a related column. The different types of joins are:</p>
+            <div>
+                <ul>
+                    <li><strong>INNER JOIN:</strong> Returns records that have matching values in both tables.</li>
+                    <li><strong>LEFT JOIN:</strong> Returns all records from the left table and the matched records from the right table.</li>
+                    <li><strong>RIGHT JOIN:</strong> Returns all records from the right table and the matched records from the left table.</li>
+                    <li><strong>FULL JOIN:</strong> Returns all records when there is a match in either left or right table records.</li>
+                    <li><strong>SELF JOIN:</strong> Joins a table with itself.</li>
+                </ul>
+            </div>
+
+            <h3>Example 1: INNER JOIN</h3>
+            <pre><code>SELECT Orders.OrderID, Customers.CustomerName
+            FROM Orders
+            INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            OrderID | CustomerName
+            -----------------------
+            1       | John Doe
+            2       | Jane Smith
+            3       | Mike Johnson
+            </code></pre>
+
+            <h3>Example 2: LEFT JOIN</h3>
+            <pre><code>SELECT Customers.CustomerName, Orders.OrderID
+            FROM Customers
+            LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            CustomerName | OrderID
+            ----------------------
+            John Doe     | 1
+            Jane Smith   | 2
+            Mike Johnson | 3
+            Emily Davis  | NULL
+            </code></pre>
+            <p><strong>Explanation:</strong> In this example, all customers are listed, even if they don't have any orders. The missing order for "Emily Davis" is represented by a NULL value.</p>
+
+            <h3>Example 3: RIGHT JOIN</h3>
+            <pre><code>SELECT Orders.OrderID, Customers.CustomerName
+            FROM Orders
+            RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            OrderID | CustomerName
+            -----------------------
+            1       | John Doe
+            2       | Jane Smith
+            3       | Mike Johnson
+            NULL    | Emily Davis
+            </code></pre>
+            <p><strong>Explanation:</strong> The RIGHT JOIN returns all orders and their matching customers, even if some customers don't have orders.</p>
+
+            <h3>Example 4: FULL JOIN</h3>
+            <pre><code>SELECT Orders.OrderID, Customers.CustomerName
+            FROM Orders
+            FULL JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            OrderID | CustomerName
+            -----------------------
+            1       | John Doe
+            2       | Jane Smith
+            3       | Mike Johnson
+            NULL    | Emily Davis
+            </code></pre>
+            <p><strong>Explanation:</strong> The FULL JOIN returns all records when there is a match in either the left (Orders) or right (Customers) table. It includes rows where there is no match in either table.</p>
+
+            <h3>Example 5: SELF JOIN</h3>
+            <pre><code>SELECT A.CustomerName AS Customer, B.CustomerName AS Referrer
+            FROM Customers A, Customers B
+            WHERE A.ReferrerID = B.CustomerID;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+            Customer    | Referrer
+            ------------------------
+            John Doe    | Jane Smith
+            Mike Johnson| John Doe
+            </code></pre>
+            <p><strong>Explanation:</strong> In a SELF JOIN, the table is joined with itself. In this example, customers who were referred by others are listed with the referrer name.</p>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+
+        <div class="topic" id="sql-union">
+            <h2>24. SQL UNION</h2>
+            <p>The UNION operator is used to combine the result sets of two or more SELECT statements.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT City FROM Customers
+        UNION
+        SELECT City FROM Suppliers;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        City
+        ---------
+        Berlin
+        Paris
+        London
+        Madrid
+            </code></pre>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-group-by">
+            <h2>25. SQL GROUP BY</h2>
+            <p>The GROUP BY statement groups rows that have the same values in specified columns into summary rows.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT COUNT(*), Country FROM Customers
+        GROUP BY Country;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        COUNT(*) | Country
+        --------- | --------
+        5        | Germany
+        3        | France
+        7        | USA
+            </code></pre>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-having">
+            <h2>26. SQL HAVING</h2>
+            <p>The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT COUNT(*), Country FROM Customers
+        GROUP BY Country HAVING COUNT(*) > 5;</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        COUNT(*) | Country
+        --------- | --------
+        8        | Germany
+            </code></pre>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-exists">
+            <h2>27. SQL EXISTS</h2>
+            <p>The EXISTS operator is used to check for the existence of any record in a subquery.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Customers
+        WHERE EXISTS (SELECT * FROM Orders
+                       WHERE Customers.CustomerID = Orders.CustomerID);</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="color: green;"><code>
+        CustomerID | CustomerName | Country
+        ----------- | ------------ | --------
+        1           | Cardinal     | Germany
+        2           | Blarine      | France
+            </code></pre>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-any-all">
+            <h2>28. SQL ANY, ALL</h2>
+            <p>ANY and ALL are used to compare a value to a list of values returned by a subquery.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT * FROM Products
+        WHERE Price > ANY (SELECT Price FROM Products WHERE Price &lt; 20);</code></pre>
+            <p>This query retrieves all products that have a price greater than any price from the products that are less than 20.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-select-into">
+            <h2>29. SQL SELECT INTO</h2>
+            <p>The SELECT INTO statement is used to select data from one table and insert it into another table.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT * INTO NewTable FROM Customers WHERE Country='Germany';</code></pre>
+            <p>This query creates a new table named <code>NewTable</code> and populates it with all records from the <code>Customers</code> table where the country is Germany.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-insert-into-select">
+            <h2>30. SQL INSERT INTO SELECT</h2>
+            <p>The INSERT INTO SELECT statement is used to insert data from one table into another.</p>
+            <h3>Example</h3>
+            <pre><code>INSERT INTO NewTable (CustomerName, Country) SELECT CustomerName, Country FROM Customers WHERE Country='Germany';</code></pre>
+            <p>This query inserts the <code>CustomerName</code> and <code>Country</code> from the <code>Customers</code> table into the <code>NewTable</code> for all customers from Germany.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-case">
+            <h2>31. SQL CASE</h2>
+            <p>The CASE statement goes through conditions and returns a value when the first condition is met.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT CustomerName, CASE WHEN Country='Germany' THEN 'EU' ELSE 'Non-EU' END AS Region FROM Customers;</code></pre>
+            <p>This query selects the <code>CustomerName</code> and categorizes customers based on their <code>Country</code>, assigning them to either 'EU' or 'Non-EU' regions.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <div class="topic" id="sql-null-functions">
+            <h2>32. SQL NULL Functions</h2>
+            <p>NULL functions are used to handle NULL values in a database. These functions allow you to replace NULLs with a default value or perform operations that ignore NULLs.</p>
+            <h3>Example</h3>
+            <pre><code>SELECT IFNULL(column_name, 'default_value') AS column_name FROM table_name;</code></pre>
+            <p>This query uses the <code>IFNULL</code> function to return 'default_value' when <code>column_name</code> is NULL.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-stored-procedures">
+            <h2>33. SQL Stored Procedures</h2>
+            <p>Stored procedures are prepared SQL code that you can save and reuse. They help in encapsulating the SQL logic and can be executed with a simple call.</p>
+            <h3>Example</h3>
+            <pre><code>CREATE PROCEDURE ProcedureName AS
+        BEGIN
+            SELECT * FROM Customers;
+        END;</code></pre>
+            <p>This example creates a stored procedure named <code>ProcedureName</code> that retrieves all records from the <code>Customers</code> table. You can execute this stored procedure using the following command:</p>
+            <pre><code>EXEC ProcedureName;</code></pre>
+            <p>This will run the stored procedure and return all records from the <code>Customers</code> table.</p>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-comments">
+            <h2>34. SQL Comments</h2>
+            <p>Comments in SQL are used to make the code more understandable and to provide explanations or annotations for future reference. They are ignored by the SQL engine.</p>
+            <h3>Example</h3>
+            <pre><code>-- This is a single-line comment<br>/* This is a multi-line comment */</code></pre>
+            <p>In the example above:</p>
+            <ul>
+                <li>Single-line comments start with <code>--</code> and continue to the end of the line.</li>
+                <li>Multi-line comments are enclosed between <code>/*</code> and <code>*/</code> and can span multiple lines.</li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+        <div class="topic" id="sql-operators">
+            <h2>35. SQL Operators</h2>
+            <p>SQL operators are used to specify conditions in a SQL statement. They help in filtering records and performing operations on data.</p>
+            <div>
+                <h3>Types of SQL Operators:</h3>
+                <ul>
+                    <li><strong>Comparison Operators:</strong>
+                        <ul>
+                            <li>= : Equal to</li>
+                            <li>&lt; : Less than</li>
+                            <li>&gt; : Greater than</li>
+                            <li>&lt;= : Less than or equal to</li>
+                            <li>&gt;= : Greater than or equal to</li>
+                            <li>&lt;&gt; : Not equal to</li>
+                        </ul>
+                    </li>
+                    <li><strong>Arithmetic Operators:</strong>
+                        <ul>
+                            <li>+ : Addition</li>
+                            <li>- : Subtraction</li>
+                            <li>* : Multiplication</li>
+                            <li>/ : Division</li>
+                        </ul>
+                    </li>
+                    <li><strong>Logical Operators:</strong>
+                        <ul>
+                            <li>AND : Returns true if both conditions are true</li>
+                            <li>OR : Returns true if at least one condition is true</li>
+                            <li>NOT : Reverses the result of a condition</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+        <script>
+            let currentTopic = 0; // Current active topic index
+            const topics = document.querySelectorAll('.topic'); // Select all topic elements
+
+            // Function to show the selected topic by ID
+            function showTopic(topicId) {
+                // Hide all topics
+                topics.forEach((topic, index) => {
+                    topic.classList.remove('active');
+                    if (topic.id === topicId) {
+                        currentTopic = index; // Update current topic index
+                        topic.classList.add('active'); // Show the selected topic
+                        topic.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+                    }
+                });
+            }
+
+            // Function to navigate to the next topic
+            function nextTopic() {
+                topics[currentTopic].classList.remove('active'); // Hide current topic
+                currentTopic = (currentTopic + 1) % topics.length; // Move to the next topic
+                topics[currentTopic].classList.add('active'); // Show next topic
+                topics[currentTopic].scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+            }
+
+            // Function to navigate to the previous topic
+            function prevTopic() {
+                topics[currentTopic].classList.remove('active'); // Hide current topic
+                currentTopic = (currentTopic - 1 + topics.length) % topics.length; // Move to the previous topic
+                topics[currentTopic].classList.add('active'); // Show previous topic
+                topics[currentTopic].scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+            }
+        </script>
+        </body>
+
+        </section>
+      </div>
+      <footer style="font-family: 'Open Sans', sans-serif ; text-align: center;  ">
+        <p class="mt-4 text-base" >&copy; 2024 sw.edu. All rights reserved.</p>
+
+        <a class="footerL" href="{% url 'about' %}" >About</a> |
+        <a class="footerL" href="{% url 'contact' %}">Contact</a> |
+        <a class="footerL" href="{% url 'privacy_policy' %}">Privacy Policy</a>
+
+    </footer>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+      }
+    </script>
+
+  </body>
+</html>

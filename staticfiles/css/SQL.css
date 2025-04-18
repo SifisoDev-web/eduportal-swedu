@@ -1,0 +1,239 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+
+      body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+            width: 100%;
+
+      }
+      #web {
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      /* Container */
+      .container {
+        width: 100%;
+        min-height: 800px;
+        background-color: gainsboro;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+        padding: 24px;
+        margin: 0  ;
+
+      }
+      .content {
+        margin: 10px;
+        padding: 10px;
+
+      }
+      .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .navigation{
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+
+      }
+      .text-primary{
+        color: rgb(250, 91, 48);
+      }
+      .footerL {
+        text-align: center;
+        text-decoration: none;
+        color: rgb(250, 91, 48);
+        gap: 10px;
+        transition: text-decoration 0.5s ease ;
+      }
+      .footerL:hover {
+         text-decoration:underline;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 16px;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        gap: 24px;
+
+
+      }
+
+      nav a {
+        color: rgb(250, 91, 48);
+        text-decoration: none;
+        font-size: 18px;
+        transition: text-decoration 0.5s ease ;
+      }
+
+      nav a:hover {
+         color: #000000;
+         font-weight: bold;
+      }
+
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+      }
+
+      .menu {
+        display: flex;
+      }
+      .signUp-button {
+        margin: 0;
+        padding: 0;
+
+        background-color: rgb(250, 91, 48) !important ;
+        border: none;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        width: 80px;
+    }
+
+    .signUp-button a {
+        all: unset;
+        font-family: 'Arial', sans-serif;
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold !important;
+    }
+
+    .signUp-button a:hover {
+        color: black;
+
+    }
+
+
+
+
+      @media (max-width: 768px) {
+          .signUp-button {
+            width: 100px;
+
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        .menu {
+          display: none;
+          flex-direction: column;
+
+          position: absolute;
+          top: 30px;
+          left: 0;
+          background-color: #ffffff;
+          z-index: 10;
+          padding-left: 18px;
+          border-radius: 20;
+
+          padding-bottom: 20px;
+          margin-top :50px;
+          width: 100%;
+
+        }
+
+        .menu.active {
+          display: flex;
+        }
+
+        nav {
+          display: none;
+          float: right;
+        }
+      }
+
+
+       button{
+               border-radius: 5px;
+               font-family: 'Open Sans', sans-serif;
+               margin-bottom: 10px;
+        }
+
+        h2 {
+            color: rgb(250, 91, 48);
+        }
+        .nav-buttons {
+            margin: 20px 0;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: rgb(250, 91, 48);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .topic {
+            display: none;
+        }
+        .topic.active {
+            display: block;
+        }
+        h1 {
+            color: rgb(250, 91, 48);
+        }
+        h2 {
+            color: rgb(250, 91, 48);
+        }
+        pre {
+    background-color: #ffffff;
+    padding: 10px;
+    border-left: 5px solid rgb(250, 91, 48);
+    overflow-x: auto;
+    font-family: Consolas, monospace;
+  }
+  .nav-button {
+    background-color: rgb(250, 91, 48);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 70px;
+    gap: 50px;
+  }
+        .nav-button:hover {
+            background-color: rgb(220, 70, 40);
+        }
+        @media (max-width: 768px) {
+
+
+    .nav-button {
+        margin-right: 5px;
+        padding: 8px 15px;
+        flex: 1 1 100%;
+
+    }
+     .navigation-logo{
+            padding-top: 17px;
+              height: 50px;
+
+            }.navigation{
+              height: 80px;
+            }
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+}

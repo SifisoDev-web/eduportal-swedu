@@ -1,0 +1,871 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Java from scratch with sw_edu! Discover the fundamentals of Java programming, from syntax to variables and simple control structures. Start your Java learning journey today!">
+    <meta name="keywords" content="Java tutorials, learn Java online, Java for beginners, Java programming basics, Java syntax, beginner Java examples, Java variables, Java control structures, Java commands, Java programming step-by-step, Java beginner guide, Java coding examples, sw|edu">
+    <meta name="author" content="sw|edu">
+    <title>Learn Java Basics: A Beginner's Guide</title>
+
+
+    <link rel="stylesheet" href="{% static 'css/java.css' %}">
+
+  </head>
+  <body>
+    <div id="web">
+      <div class="container">
+        <header  style="position: fixed;padding-top: 12px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         " class="navigation">
+          <img src="{% static 'images/logo.png' %}" alt="SW edu Logo" class="navigation-logo" style="height:95px;padding-left:2px ;  width: 110px;">
+
+          <div class="menu-toggle" onclick="toggleMenu()" style="  padding-right:7px;">
+            <img src="{% static 'images/menu.png' %}" alt="menu-toggle" style="margin: 16px 5px 0 0; padding: 2px;  width: 35px;   ">
+          </div>
+          <nav class="menu" style=" padding-right: 20px;">
+            <a href="home">Home</a>
+            <a href="java_home">Java</a>
+            <a href="SQL_home">SQL</a>
+            <a href="python_home">Python</a>
+            <a href="signin">Login</a>
+            <button class="signUp-button">
+                <a  href="signup">Sign Up</a>
+            </button>
+          </nav>
+        </header>
+
+
+        <section class="content">
+          <h1>Java Basics Tutorial</h1>
+          <h1><a style="  color: rgb(250, 91, 48); " href="#topics" onclick="showTopic('topics')">View Topics</a></h1>
+
+          <!-- pages -->
+          <div class="topic active" id="topics">
+            <h4><a href="#java-introduction" onclick="showTopic('java-introduction')">1. Java Introduction</a></h4>
+            <h4><a href="#getting-started" onclick="showTopic('getting-started')">2. Getting Started with Java</a></h4>
+             <h4><a href="#java-syntax" onclick="showTopic('java-syntax')">3. Java Syntax</a></h4>
+            <h4><a href="#java-output" onclick="showTopic('java-output')">4. Java Output</a></h4>
+            <h4><a href="#java-comments" onclick="showTopic('java-comments')">5. Java Comments</a></h4>
+            <h4><a href="#java-variables" onclick="showTopic('java-variables')">6. Java Variables</a></h4>
+            <h4><a href="#java-data-types" onclick="showTopic('java-data-types')">7. Java Data Types</a></h4>
+             <h4><a href="#java-type-casting" onclick="showTopic('java-type-casting')">8. Java Type Casting</a></h4>
+            <h4><a href="#java-operators" onclick="showTopic('java-operators')">9. Java Operators</a></h4>
+           <h4><a href="#java-strings" onclick="showTopic('java-strings')">10. Java Strings</a></h4>
+          <h4><a href="#java-math" onclick="showTopic('java-math')">11. Java Math</a></h4>
+          <h4><a href="#java-booleans" onclick="showTopic('java-booleans')">12. Java Booleans</a></h4>
+           <h4><a href="#java-if-else" onclick="showTopic('java-if-else')">13. Java If-Else</a></h4>
+            <h4><a href="#java-switch" onclick="showTopic('java-switch')">14. Java Switch</a></h4>
+            <h4><a href="#java-while-loop" onclick="showTopic('java-while-loop')">15. Java While Loop</a></h4>
+             <h4><a href="#java-for-loop" onclick="showTopic('java-for-loop')">16. Java For Loop</a></h4>
+             <h4><a href="#java-break-continue" onclick="showTopic('java-break-continue')">17. Java Break and Continue</a></h4>
+             <h4><a href="#java-arrays" onclick="showTopic('java-arrays')">18. Java Arrays</a></h4>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Introduction -->
+          <div class="topic" id="java-introduction">
+            <h2>1. Java Introduction</h2>
+            <p>Java is a popular programming language that is widely used for building applications. It is object-oriented, platform-independent, and known for its portability across platforms.</p>
+            <p>Java code is written once and can run on any device that supports Java without the need for recompilation. This is made possible through the Java Virtual Machine (JVM).</p>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Get Started -->
+          <div class="topic" id="getting-started">
+            <h2>2. Getting Started with Java</h2>
+            <p>To start coding in Java, you need to install the Java Development Kit (JDK). Here’s how:</p>
+            <ol>
+              <li>Download the JDK from the <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">official Oracle website</a>.</li>
+              <li>Install the JDK following the instructions for your operating system.</li>
+              <li>Verify the installation by typing <code>java -version</code> in your command prompt.</li>
+            </ol>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Syntax -->
+          <div class="topic" id="java-syntax">
+            <h2>3. Java Syntax</h2>
+            <p>Java follows a specific syntax and structure. Every Java program begins with a class declaration, which must match the file name. The <code>main</code> method inside the class serves as the entry point for program execution.</p>
+            <p>Here’s a simple example of a Java program that prints "Hello, World!" to the console:</p>
+            <pre><code>
+          <span class="code-keyword">public</span> <span class="code-keyword">class</span> <span class="code-class">HelloWorld</span> {
+              <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">void</span> main(<span class="code-keyword">String</span>[] args) {
+                  System.out.println(<span class="code-string">"Hello, World!"</span>);
+              }
+          }
+            </code></pre>
+
+            <p><strong>public class HelloWorld { ... }</strong></p>
+<p><strong>public</strong>: This keyword makes the class accessible from anywhere, so other parts of the program can access it if needed.</p>
+<p><strong>class</strong>: This keyword is used to declare a new class, which is like a blueprint for creating objects or organizing code.</p>
+<p><strong>HelloWorld</strong>: This is the name of the class. By convention, class names start with a capital letter. In this example, the class is named <code>HelloWorld</code> because it represents the code for a simple "Hello, World!" program.</p>
+<p>The entire program is inside this <code>HelloWorld</code> class.</p>
+
+<p><strong>public static void main(String[] args) { ... }</strong></p>
+<p><strong>public</strong>: This means the method is accessible from anywhere in the program.</p>
+<p><strong>static</strong>: This keyword means the method belongs to the class itself and can be run without creating an instance (object) of the class.</p>
+<p><strong>void</strong>: This indicates that the method does not return any value.</p>
+<p><strong>main</strong>: The <code>main</code> method is the entry point of any Java application. When you run the program, Java starts executing from this method.</p>
+<p><strong>String[] args</strong>: This is an array of <code>String</code> values that can hold command-line arguments if you pass any when starting the program.</p>
+          <p>Another example:</p>
+            <pre><code>
+          <span class="code-keyword">public</span> <span class="code-keyword">class</span> <span class="code-class">Greeting</span> {
+              <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">void</span> main(<span class="code-keyword">String</span>[] args) {
+                  System.out.println(<span class="code-string">"Welcome to Java programming!"</span>);
+              }
+          }
+            </code></pre>
+            <p>And one more example:</p>
+            <pre><code>
+          <span class="code-keyword">public</span> <span class="code-keyword">class</span> <span class="code-class">Addition</span> {
+              <span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">void</span> main(<span class="code-keyword">String</span>[] args) {
+                  int a = <span class="code-keyword">5</span>;
+                  int b = <span class="code-keyword">10</span>;
+                  System.out.println(<span class="code-string">"Sum is: "</span> + (a + b));
+              }
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Output -->
+          <div class="topic" id="java-output">
+            <h2>4. Java Output</h2>
+            <p>Java provides several methods to display output to the console. The most common method is <code>System.out.println()</code>, which prints the output followed by a new line.</p>
+            <p>In Java, "output" refers to displaying information to the user or console. Java provides a way to produce output using the System.out.print() and System.out.println() methods, both part of the System class in Java’s java.lang package.</p>
+            <p>Here’s an example:</p>
+            <pre><code>
+          System.out.println(<span class="code-string">"Hello, Java!"</span>);
+            </code></pre>
+            <p>Another method is <code>System.out.print()</code>, which does not add a new line:</p>
+            <pre><code>
+          System.out.print(<span class="code-string">"This is on the same line."</span>);
+            </code></pre>
+            <p>Here’s a combined example:</p>
+            <pre><code>
+          System.out.print(<span class="code-string">"Welcome to "</span>);
+          System.out.println(<span class="code-string">"Java programming!"</span>);
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Comments -->
+          <div class="topic" id="java-comments">
+            <h2>5. Java Comments</h2>
+            <p>Comments in Java are non-executable lines that are used to provide explanations within the code. Java supports three types of comments: single-line comments, multi-line comments, and documentation comments.</p>
+            <p>Example of a single-line comment:</p>
+            <pre><code>
+          // This is a single-line comment
+            </code></pre>
+            <p>Example of a multi-line comment:</p>
+            <pre><code>
+          /*
+          This is a multi-line comment.
+          It can span multiple lines.
+          */
+            </code></pre>
+            <p>Example of a documentation comment:</p>
+            <pre><code>
+          /**
+           * This is a documentation comment.
+           * It is used to generate API documentation.
+           */
+            </code></pre>
+            <p>Another example:</p>
+            <pre><code>
+          <span class="code-comment">// The following code prints a message to the console</span>
+          System.out.println(<span class="code-string">"Learning Java is fun!"</span>);
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Variables -->
+          <div class="topic" id="java-variables">
+            <h2>6. Java Variables</h2>
+            <p>Variables in Java are containers for storing data values. Each variable must have a specific data type, which determines the kind of data it can hold.</p>
+            <p>Here’s how to declare and initialize variables:</p>
+            <pre><code>
+          <span class="code-keyword">int</span> age = <span class="code-keyword">30</span>;
+          <span class="code-keyword">String</span> name = <span class="code-string">"John"</span>;
+            </code></pre>
+            <p><strong>int age = 30;</strong></p>
+<p><strong>int</strong>: This keyword is a data type in Java that stands for "integer." It’s used to store whole numbers (without decimal points), such as -5, 0, or 30.</p>
+<p><strong>age</strong>: This is the variable name. In this case, it represents a person’s age, which is why we named it <code>age</code>. You can choose other names for variables, but it’s good practice to pick names that make sense for what they store.</p>
+<p><strong>= 30;</strong>: The equals sign (<code>=</code>) is the assignment operator in Java. It assigns the value on the right side (30) to the variable on the left side (<code>age</code>). The semicolon (<code>;</code>) ends the statement.</p>
+<p>So, <code>int age = 30;</code> declares an integer variable called <code>age</code> and assigns it the value 30.</p>
+
+<p><strong>String name = "John";</strong></p>
+<p><strong>String</strong>: This is a data type in Java used to store text (a sequence of characters). In Java, <code>String</code> values are always enclosed in double quotes (<code>"</code>).</p>
+<p><strong>name</strong>: This is the variable name, representing the name of a person.</p>
+<p><strong>= "John";</strong>: The equals sign assigns the value <code>"John"</code> to the variable <code>name</code>. The semicolon ends the statement.</p>
+<p>So, <code>String name = "John";</code> declares a <code>String</code> variable called <code>name</code> and assigns it the value <code>"John"</code>.</p>
+
+            <p>Another example:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> price = <span class="code-keyword">19.99</span>;
+          <span class="code-keyword">boolean</span> isAvailable = <span class="code-keyword">true</span>;
+            </code></pre>
+            <p><strong>double price = 19.99;</strong></p>
+<p><strong>double</strong>: This is a data type in Java used to store decimal numbers, such as 19.99 or 3.14. It’s commonly used for values that may contain fractions.</p>
+<p><strong>price</strong>: This is the variable name. In this case, it represents the price of an item, so it’s named <code>price</code> to make its purpose clear.</p>
+<p><strong>= 19.99;</strong>: The equals sign (<code>=</code>) is the assignment operator in Java. It assigns the value on the right side (19.99) to the variable on the left side (<code>price</code>). The semicolon (<code>;</code>) ends the statement.</p>
+<p>So, <code>double price = 19.99;</code> declares a decimal variable called <code>price</code> and assigns it the value 19.99.</p>
+
+<p><strong>boolean isAvailable = true;</strong></p>
+<p><strong>boolean</strong>: This is a data type in Java used to store <code>true</code> or <code>false</code> values. It’s often used for conditions, such as checking if something is available.</p>
+<p><strong>isAvailable</strong>: This is the variable name, chosen to represent whether an item is available. The name <code>isAvailable</code> is descriptive of what it stores.</p>
+<p><strong>= true;</strong>: The equals sign assigns the value <code>true</code> to the variable <code>isAvailable</code>. The semicolon ends the statement.</p>
+<p>So, <code>boolean isAvailable = true;</code> declares a boolean variable called <code>isAvailable</code> and assigns it the value <code>true</code>.</p>
+
+            <p>One more example:</p>
+            <pre><code>
+          <span class="code-keyword">char</span> initial = <span class="code-string">'J'</span>;
+          <span class="code-keyword">long</span> population = <span class="code-keyword">7000000</span>;
+            </code></pre>
+            <p><strong>char initial = 'J';</strong></p>
+<p><strong>char</strong>: This is a data type in Java used to store a single character, such as a letter or symbol. In Java, characters are enclosed in single quotes (<code>'</code>).</p>
+<p><strong>initial</strong>: This is the variable name, which represents the initial of a person’s name. It’s named <code>initial</code> to clearly indicate what it holds.</p>
+<p><strong>= 'J';</strong>: The equals sign (<code>=</code>) is the assignment operator in Java. It assigns the value on the right side (<code>'J'</code>) to the variable on the left side (<code>initial</code>). The semicolon (<code>;</code>) ends the statement.</p>
+<p>So, <code>char initial = 'J';</code> declares a character variable called <code>initial</code> and assigns it the value <code>'J'</code>.</p>
+
+<p><strong>long population = 7000000;</strong></p>
+<p><strong>long</strong>: This is a data type in Java used to store large integer values, which can hold numbers much larger than the <code>int</code> data type. It's useful for values like populations or large counts.</p>
+<p><strong>population</strong>: This is the variable name, representing the population of a place. It's named <code>population</code> to clearly describe what it stores.</p>
+<p><strong>= 7000000;</strong>: The equals sign assigns the value <code>7000000</code> to the variable <code>population</code>. The semicolon ends the statement.</p>
+<p>So, <code>long population = 7000000;</code> declares a long variable called <code>population</code> and assigns it the value <code>7000000</code>.</p>
+
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Data Types -->
+          <div class="topic" id="java-data-types">
+            <h2>7. Java Data Types</h2>
+            <p>In Java, data types specify the kind of values a variable can hold. Java is a strongly-typed language, meaning each variable must be declared with a data type before it’s used. Java's data types are divided into two main categories:</p>
+            <p>Primitive Data Types: The most basic data types in Java.</p>
+            <p>Non-Primitive (Reference) Data Types: More complex data types, like classes, arrays, and interfaces.</p>
+            <p>Java two categories of data types: primitive types and reference types. Primitive types include <code>int</code>, <code>char</code>, <code>double</code>, etc.</p>
+            <p>Example of using primitive data types:</p>
+            <pre><code>
+          <span class="code-keyword">int</span> number = <span class="code-keyword">10</span>;
+          <span class="code-keyword">char</span> letter = <span class="code-string">'A'</span>;
+          <span class="code-keyword">double</span> price = <span class="code-keyword">10.99</span>;
+            </code></pre>
+            <p>Example of a reference data type:</p>
+            <pre><code>
+          <span class="code-keyword">String</span> message = <span class="code-string">"Hello, World!"</span>;
+            </code></pre>
+            <p><strong>String message = "Hello, World!";</strong></p>
+<p><strong>String</strong>: This is a data type in Java used to store text (a sequence of characters). In Java, <code>String</code> values are always enclosed in double quotes (<code>"</code>).</p>
+<p><strong>message</strong>: This is the variable name. In this case, it represents a message or text. It’s named <code>message</code> to clearly indicate what it holds.</p>
+<p><strong>= "Hello, World!";</strong>: The equals sign (<code>=</code>) is the assignment operator in Java. It assigns the value on the right side (<code>"Hello, World!"</code>) to the variable on the left side (<code>message</code>). The semicolon (<code>;</code>) ends the statement.</p>
+<p>So, <code>String message = "Hello, World!";</code> declares a <code>String</code> variable called <code>message</code> and assigns it the value <code>"Hello, World!"</code>.</p>
+
+            <p>And another example of a reference data type:</p>
+            <pre><code>
+          <span class="code-keyword">String</span> greeting = <span class="code-string">"Good Morning!"</span>;
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Type Casting -->
+          <div class="topic" id="java-type-casting">
+            <h2>8. Java Type Casting</h2>
+            <p>Type casting in Java is the process of converting a variable from one data type to another. There are two types of casting: widening and narrowing.</p>
+            <p>Example of widening casting:</p>
+            <pre><code>
+          <span class="code-keyword">int</span> num = <span class="code-keyword">100</span>;
+          <span class="code-keyword">double</span> dNum = num; // Widening
+            </code></pre>
+            <p>Example of narrowing casting:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> dNum = <span class="code-keyword">9.78</span>;
+          <span class="code-keyword">int</span> num = (<span class="code-keyword">int</span>) dNum; // Narrowing
+            </code></pre>
+            <p>Another example of narrowing casting:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> decimalNum = <span class="code-keyword">5.99</span>;
+          <span class="code-keyword">int</span> wholeNum = (<span class="code-keyword">int</span>) decimalNum; // Will result in 5
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Operators -->
+          <div class="topic" id="java-operators">
+            <h2>9. Java Operators</h2>
+            <p>Java has several types of operators: arithmetic, relational, logical, assignment, bitwise, and more. Operators are special symbols that perform operations on variables and values.</p>
+
+            <p>Example of arithmetic operators:</p>
+            <pre><code>
+        int a = 10;
+        int b = 5;
+        int sum = a + b; // Addition
+        int difference = a - b; // Subtraction
+        int product = a * b; // Multiplication
+        int quotient = a / b; // Division
+        int remainder = a % b; // Modulus
+            </code></pre>
+
+            <p>Example of relational operators:</p>
+            <pre><code>
+        boolean isEqual = (a == b); // false
+        boolean isNotEqual = (a != b); // true
+        boolean isGreater = (a > b); // true
+        boolean isLess = (a < b); // false
+        boolean isGreaterOrEqual = (a >= b); // true
+        boolean isLessOrEqual = (a <= b); // false
+            </code></pre>
+
+            <p>Example of logical operators:</p>
+            <pre><code>
+        boolean isAdult = true;
+        boolean hasPermission = false;
+        boolean canEnter = isAdult && hasPermission; // false
+        boolean isAdminOrUser = isAdult || hasPermission; // true
+        boolean isNotAdmin = !hasPermission; // true
+            </code></pre>
+
+            <p>Example of assignment operators:</p>
+            <pre><code>
+        int x = 10;
+        x += 5; // x = x + 5, result: 15
+        x -= 2; // x = x - 2, result: 13
+        x *= 3; // x = x * 3, result: 39
+        x /= 3; // x = x / 3, result: 13
+        x %= 4; // x = x % 4, result: 1
+            </code></pre>
+
+            <p>Example of bitwise operators:</p>
+            <pre><code>
+        int c = 5;  // 0101 in binary
+        int d = 3;  // 0011 in binary
+        int bitwiseAnd = c & d; // 0001 (1 in decimal)
+        int bitwiseOr = c | d; // 0111 (7 in decimal)
+        int bitwiseXor = c ^ d; // 0110 (6 in decimal)
+        int bitwiseComplement = ~c; // 1010 (in two's complement, -6 in decimal)
+            </code></pre>
+
+            <p>Example of increment and decrement operators:</p>
+            <pre><code>
+        int y = 10;
+        y++; // Post-increment, y becomes 11
+        ++y; // Pre-increment, y becomes 12
+        y--; // Post-decrement, y becomes 11
+        --y; // Pre-decrement, y becomes 10
+            </code></pre>
+
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+
+          <!-- Java Strings -->
+          <div class="topic" id="java-strings">
+            <h2>10. Java Strings</h2>
+            <p>In Java, a String is a sequence of characters used to represent text. Strings in Java are objects, and they are instances of the String class. They offer various methods for text manipulation, making them versatile and widely used.</p>
+            <p>Strings in Java are used to represent text. They are objects that belong to the <code>String</code> class.</p>
+            <p>Example of creating a string:</p>
+            <pre><code>
+          <span class="code-keyword">String</span> greeting = <span class="code-string">"Hello, World!"</span>;
+            </code></pre>
+            <p>Example of string concatenation:</p>
+            <pre><code>
+          <span class="code-keyword">String</span> name = <span class="code-string">"Alice"</span>;
+          <span class="code-keyword">String</span> message = greeting + <span class="code-string">", " </span> + name; // Hello, World!, Alice
+            </code></pre>
+            <p>Another example of using string methods:</p>
+            <pre><code>
+          <span class="code-keyword">String</span> upperCaseGreeting = greeting.toUpperCase(); // HELLO, WORLD!
+            </code></pre>
+            <p>Example of converting a string to uppercase:</p>
+    <pre><code>
+String upperCaseGreeting = greeting.toUpperCase(); // HELLO, WORLD!
+    </code></pre>
+
+    <p>Example of converting a string to lowercase:</p>
+    <pre><code>
+String lowerCaseGreeting = greeting.toLowerCase(); // hello, world!
+    </code></pre>
+
+    <p>Another example of using string methods:</p>
+    <pre><code>
+int greetingLength = greeting.length(); // 13
+boolean containsHello = greeting.contains("Hello"); // true
+    </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Math -->
+          <div class="topic" id="java-math">
+            <h2>11. Java Math</h2>
+            <p>Java provides a built-in class called <code>Math</code> to perform basic mathematical operations.</p>
+            <p>Example of using the <code>Math</code> class:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> squareRoot = <span class="code-keyword">Math</span>.sqrt(<span class="code-keyword">16</span>); // 4.0
+            </code></pre>
+            <p>Example of using mathematical constants:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> pi = <span class="code-keyword">Math</span>.PI; // 3.14159...
+            </code></pre>
+            <p>Another example of using mathematical operations:</p>
+            <pre><code>
+          <span class="code-keyword">double</span> power = <span class="code-keyword">Math</span>.pow(<span class="code-keyword">2</span>, <span class="code-keyword">3</span>); // 8.0
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Booleans -->
+          <div class="topic" id="java-booleans">
+            <h2>12. Java Booleans</h2>
+            <p>In Java, a boolean is a primitive data type that represents one of two values: <code>true</code> or <code>false</code>. It is commonly used in conditional statements and loops to control the flow of a program based on certain conditions.</p>
+
+            <p>Example of a boolean variable:</p>
+            <pre><code>
+          <span class="code-keyword">boolean</span> isJavaFun = <span class="code-keyword">true</span>;
+            </code></pre>
+            <p>Example of a boolean expression:</p>
+            <pre><code>
+          <span class="code-keyword">boolean</span> isAdult = <span class="code-keyword">true</span>;
+          <span class="code-keyword">boolean</span> hasPermission = <span class="code-keyword">false</span>;
+          <span class="code-keyword">boolean</span> canEnter = isAdult &amp;&amp; hasPermission; // false
+            </code></pre>
+            <p>Another example of using booleans in an if statement:</p>
+            <pre><code>
+          if (isJavaFun) {
+              System.out.println(<span class="code-string">"Java is fun!"</span>);
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java If-Else -->
+          <div class="topic" id="java-if-else">
+            <h2>13. Java If-Else</h2>
+            <p>In Java, the <code>if-else</code> statement is used to execute code based on certain conditions. It allows you to control the flow of a program by running specific blocks of code only if certain conditions are met</p>
+             <p> <code>if</code> statement: Executes a block of code if the condition is true.</p>
+             <p><code>else</code> statement: Executes a block of code if the condition is false.</p>
+             <p><code>else if</code> statement: Used for multiple conditions, checked in sequence.</p>
+            <p>Example of using an if-else statement:</p>
+            <pre><code>
+          int number = <span class="code-keyword">10</span>;
+          if (number &gt; <span class="code-keyword">0</span>) {
+              System.out.println(<span class="code-string">"Positive number"</span>);
+          } else {
+              System.out.println(<span class="code-string">"Not a positive number"</span>);
+          }
+            </code></pre>
+            <p>Another example:</p>
+            <pre><code>
+          int age = <span class="code-keyword">18</span>;
+          if (age &gt;= <span class="code-keyword">18</span>) {
+              System.out.println(<span class="code-string">"You are an adult."</span>);
+          } else {
+              System.out.println(<span class="code-string">"You are a minor."</span>);
+          }
+            </code></pre>
+            <p>One more example:</p>
+            <pre><code>
+          int score = <span class="code-keyword">75</span>;
+          if (score &gt;= <span class="code-keyword">60</span>) {
+              System.out.println(<span class="code-string">"You passed!"</span>);
+          } else {
+              System.out.println(<span class="code-string">"You failed!"</span>);
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Switch -->
+          <div class="topic" id="java-switch">
+            <h2>14. Java Switch</h2>
+            <p>The <code>switch</code> statement in Java is used to execute one block of code among many based on the value of a variable.</p>
+            <p>the switch statement provides a way to execute different parts of code based on the value of a variable. It is a cleaner alternative to using multiple if-else statements, especially when dealing with several possible values for a single variable.</p>
+            <p>Switch Statement: A control statement that allows multi-way branching based on the value of an expression</p>
+            <p>Cases: Each case corresponds to a potential value of the expression.</p>
+            <p>Break Statement: Used to exit the switch after a case has been executed</p>
+            <p>Default Case: Optional and executes if no cases match the expression</p>
+            <p>Fall-Through Behavior: Omitting break allows execution to continue to subsequent cases.</p>
+            <p>Example of a switch statement:</p>
+            <pre><code>
+          int day = <span class="code-keyword">3</span>;
+          switch (day) {
+              case <span class="code-keyword">1</span>:
+                  System.out.println(<span class="code-string">"Monday"</span>);
+                  break;
+              case <span class="code-keyword">2</span>:
+                  System.out.println(<span class="code-string">"Tuesday"</span>);
+                  break;
+              case <span class="code-keyword">3</span>:
+                  System.out.println(<span class="code-string">"Wednesday"</span>);
+                  break;
+              default:
+                  System.out.println(<span class="code-string">"Not a valid day"</span>);
+          }
+            </code></pre>
+            <p><strong>int day = 3;</strong></p>
+<p><strong>int</strong>: This is a data type in Java used to store whole numbers (without decimal points). Here, it’s used to represent the day of the week as a number.</p>
+<p><strong>day</strong>: This is the variable name representing the day of the week. It’s assigned the value <code>3</code> in this example.</p>
+
+<p><strong>switch (day) { ... }</strong></p>
+<p><strong>switch</strong>: This statement is used to perform different actions based on the value of a variable. It evaluates the variable <code>day</code> and checks each <code>case</code> to find a match.</p>
+
+<p><strong>case 1:</strong> When <code>day</code> is <code>1</code>, this block runs.</p>
+<p><strong>System.out.println("Monday");</strong>: This prints <code>"Monday"</code> to the console if <code>day</code> equals <code>1</code>.</p>
+<p><strong>break;</strong>: This statement exits the switch block, preventing the code from running into the next <code>case</code>.</p>
+
+<p><strong>case 2:</strong> When <code>day</code> is <code>2</code>, this block runs.</p>
+<p><strong>System.out.println("Tuesday");</strong>: This prints <code>"Tuesday"</code> to the console if <code>day</code> equals <code>2</code>.</p>
+<p><strong>break;</strong>: This exits the switch block.</p>
+
+<p><strong>case 3:</strong> When <code>day</code> is <code>3</code>, this block runs.</p>
+<p><strong>System.out.println("Wednesday");</strong>: This prints <code>"Wednesday"</code> to the console if <code>day</code> equals <code>3</code>.</p>
+<p><strong>break;</strong>: This exits the switch block.</p>
+
+<p><strong>default:</strong> This block runs if none of the <code>case</code> values match the <code>day</code> variable. It’s like a "catch-all" for unexpected values.</p>
+<p><strong>System.out.println("Not a valid day");</strong>: This prints <code>"Not a valid day"</code> to the console if <code>day</code> does not match any of the cases.</p>
+
+<p>This <code>switch</code> structure allows for easy branching based on the value of <code>day</code>. In this example, because <code>day</code> is <code>3</code>, it will print <code>"Wednesday"</code>.</p>
+
+            <p>Another example:</p>
+            <pre><code>
+          char grade = <span class="code-string">'A'</span>;
+          switch (grade) {
+              case <span class="code-string">'A'</span>:
+                  System.out.println(<span class="code-string">"Excellent"</span>);
+                  break;
+              case <span class="code-string">'B'</span>:
+                  System.out.println(<span class="code-string">"Good"</span>);
+                  break;
+              default:
+                  System.out.println(<span class="code-string">"Grade not recognized"</span>);
+          }
+            </code></pre>
+            <p>One more example:</p>
+            <pre><code>
+          int month = <span class="code-keyword">5</span>;
+          switch (month) {
+              case <span class="code-keyword">1</span>:
+                  System.out.println(<span class="code-string">"January"</span>);
+                  break;
+              case <span class="code-keyword">2</span>:
+                  System.out.println(<span class="code-string">"February"</span>);
+                  break;
+              case <span class="code-keyword">5</span>:
+                  System.out.println(<span class="code-string">"May"</span>);
+                  break;
+              default:
+                  System.out.println(<span class="code-string">"Not a valid month"</span>);
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java While -->
+          <div class="topic" id="java-while-loop">
+            <h2>15. Java While Loop</h2>
+            <p>The <code>while</code> loop in Java repeatedly executes a block of statements as long as the specified condition is <code>true</code>.</p>
+            <p>Example of a while loop:</p>
+            <pre><code>
+          int count = <span class="code-keyword">1</span>;
+          while (count &lt;= <span class="code-keyword">5</span>) {
+              System.out.println(count);
+              count++;
+          }
+            </code></pre>
+            <p><strong>int count = 1;</strong></p>
+<p><strong>int</strong>: This is a data type in Java used to store whole numbers (without decimal points). Here, it’s used to represent a counter.</p>
+<p><strong>count</strong>: This is the variable name. It starts with the value <code>1</code> and will increase with each iteration of the loop.</p>
+
+<p><strong>while (count &lt;= 5) { ... }</strong></p>
+<p><strong>while</strong>: This is a loop that repeats as long as the specified condition is <code>true</code>. In this case, the loop continues as long as <code>count &lt;= 5</code> (meaning <code>count</code> is less than or equal to <code>5</code>).</p>
+
+<p><strong>System.out.println(count);</strong>: This line prints the current value of <code>count</code> to the console each time the loop runs.</p>
+
+<p><strong>count++;</strong>: This is shorthand for <code>count = count + 1</code>. It increases the value of <code>count</code> by 1 with each iteration of the loop.</p>
+
+<p>So, this code starts with <code>count</code> at <code>1</code> and prints each number up to <code>5</code>. When <code>count</code> reaches <code>6</code>, the <code>while</code> loop condition is no longer <code>true</code>, and the loop stops.</p>
+
+            <p>Another example:</p>
+            <pre><code>
+          int n = <span class="code-keyword">10</span>;
+          while (n &gt;= <span class="code-keyword">1</span>) {
+              System.out.println(n);
+              n--;
+          }
+            </code></pre>
+            <p>One more example:</p>
+            <pre><code>
+          int sum = <span class="code-keyword">0</span>;
+          int i = <span class="code-keyword">1</span>;
+          while (i &lt;= <span class="code-keyword">10</span>) {
+              sum += i;
+              i++;
+          }
+          System.out.println(<span class="code-string">"Total sum is: "</span> + sum);
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java For -->
+          <div class="topic" id="java-for-loop">
+            <h2>16. Java For Loop</h2>
+            <p>The <code>for</code> loop in Java is used to execute a block of code a specific number of times.</p>
+            <p>Example of a for loop:</p>
+            <pre><code>
+          for (int i = <span class="code-keyword">1</span>; i &lt;= <span class="code-keyword">5</span>; i++) {
+              System.out.println(i);
+              //i++ increment
+          }
+            </code></pre>
+            <p><strong>for (int i = 1; i &lt;= 5; i++) { ... }</strong></p>
+<p><strong>for</strong>: This is a loop that repeats a block of code a set number of times. It’s commonly used when you know in advance how many times you want the loop to run.</p>
+<p><strong>int i = 1</strong>: This part initializes the loop variable <code>i</code> and sets it to <code>1</code> at the start.</p>
+<p><strong>i &lt;= 5</strong>: This is the loop condition. The loop will continue to run as long as <code>i</code> is less than or equal to <code>5</code>.</p>
+<p><strong>i++</strong>: This part increments <code>i</code> by <code>1</code> after each iteration. It’s shorthand for <code>i = i + 1</code>.</p>
+
+<p><strong>System.out.println(i);</strong>: This line prints the current value of <code>i</code> to the console each time the loop runs.</p>
+
+<p>So, this code starts with <code>i</code> at <code>1</code> and prints each number up to <code>5</code>. After <code>i</code> becomes <code>6</code>, the condition <code>i &lt;= 5</code> is no longer <code>true</code>, and the loop stops.</p>
+
+            <p>Another example:</p>
+            <pre><code>
+          for (int j = <span class="code-keyword">10</span>; j &gt;= <span class="code-keyword">1</span>; j--) {
+              System.out.println(j);
+              //j-- decrement
+          }
+            </code></pre>
+            <p>One more example:</p>
+            <pre><code>
+          for (int k = <span class="code-keyword">1</span>; k &lt;= <span class="code-keyword">10</span>; k++) {
+              System.out.print(k + <span class="code-string">", "</span>);
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Break and Continue -->
+          <div class="topic" id="java-break-continue">
+            <h2>17. Java Break and Continue</h2>
+            <p>The <code>break</code> statement is used to exit a loop, while the <code>continue</code> statement skips the current iteration and moves to the next one.</p>
+            <p>Example of using break:</p>
+            <pre><code>
+          for (int i = <span class="code-keyword">1</span>; i &lt;= <span class="code-keyword">5</span>; i++) {
+              if (i == <span class="code-keyword">3</span>) {
+                  break; // Exit the loop when i is 3
+              }
+              System.out.println(i);
+          }
+            </code></pre>
+            <p>Example of using continue:</p>
+            <pre><code>
+          for (int j = <span class="code-keyword">1</span>; j &lt;= <span class="code-keyword">5</span>; j++) {
+              if (j == <span class="code-keyword">3</span>) {
+                  continue; // Skip the iteration when j is 3
+              }
+              System.out.println(j);
+          }
+            </code></pre>
+            <p>One more example:</p>
+            <pre><code>
+          for (int k = <span class="code-keyword">1</span>; k &lt;= <span class="code-keyword">5</span>; k++) {
+              if (k % <span class="code-keyword">2</span> == <span class="code-keyword">0</span>) {
+                  continue; // Skip even numbers
+              }
+              System.out.println(k);
+          }
+            </code></pre>
+            <div class="nav-buttons">
+              <button class="nav-button" onclick="prevTopic()">Back</button>
+              <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+          </div>
+
+          <!-- Java Arrays -->
+          <div class="topic" id="java-arrays">
+            <h2>18. Java Arrays</h2>
+            <p>Arrays in Java are used to store multiple values of the same type in a single variable.</p>
+
+            <!-- 1D Arrays -->
+            <p>Example of declaring and initializing a 1D array:</p>
+            <pre><code>
+        int[] numbers = {1, 2, 3};
+            </code></pre>
+            <p>This creates an integer array called <code>numbers</code> with values <code>1, 2, 3</code>.</p>
+
+            <p>Accessing array elements:</p>
+            <pre><code>
+        int firstNumber = numbers[0]; // 1
+            </code></pre>
+            <p>This accesses the first element in the <code>numbers</code> array, which is <code>1</code>.</p>
+
+            <p>Looping through an array:</p>
+            <pre><code>
+        for (int i = 0; i &lt; numbers.length; i++) {
+            System.out.println(numbers[i]);
+        }
+            </code></pre>
+            <p>This <code>for</code> loop prints all elements in the <code>numbers</code> array sequentially.</p>
+
+            <!-- 2D Arrays -->
+            <h3>2D Arrays in Java</h3>
+            <p>2D arrays in Java are arrays of arrays. They allow you to represent a matrix-like structure.</p>
+            <p>Example of declaring and initializing a 2D array:</p>
+            <pre><code>
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+            </code></pre>
+            <p>This creates a 3x3 matrix where:</p>
+            <ul>
+                <li>Row 0: <code>{1, 2, 3}</code></li>
+                <li>Row 1: <code>{4, 5, 6}</code></li>
+                <li>Row 2: <code>{7, 8, 9}</code></li>
+            </ul>
+
+            <p>Accessing elements in a 2D array:</p>
+            <pre><code>
+        int firstElement = matrix[0][0]; // 1
+        int middleElement = matrix[1][1]; // 5
+            </code></pre>
+            <p>The element at <code>matrix[0][0]</code> is <code>1</code>, and the element at <code>matrix[1][1]</code> is <code>5</code>.</p>
+
+            <p>Looping through a 2D array:</p>
+            <pre><code>
+        for (int i = 0; i &lt; matrix.length; i++) {
+            for (int j = 0; j &lt; matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next row
+        }
+            </code></pre>
+            <p>This nested loop prints all elements in the 2D array, row by row.</p>
+
+            <p>Output for the above example:</p>
+            <pre><code>
+        1 2 3
+        4 5 6
+        7 8 9
+            </code></pre>
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="prevTopic()">Back</button>
+                <button class="nav-button" onclick="nextTopic()">Next</button>
+            </div>
+        </div>
+
+          <script>
+            let currentTopic = 0; // Current active topic index
+            const topics = document.querySelectorAll('.topic'); // Select all topic elements
+
+            // Function to show the selected topic by ID
+            function showTopic(topicId) {
+                // Hide all topics
+                topics.forEach((topic, index) => {
+                    topic.classList.remove('active');
+                    if (topic.id === topicId) {
+                        currentTopic = index; // Update current topic index
+                        topic.classList.add('active'); // Show the selected topic
+                        topic.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+                    }
+                });
+            }
+
+            // Function to navigate to the next topic
+            function nextTopic() {
+                topics[currentTopic].classList.remove('active'); // Hide current topic
+                currentTopic = (currentTopic + 1) % topics.length; // Move to the next topic
+                topics[currentTopic].classList.add('active'); // Show next topic
+                topics[currentTopic].scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+            }
+
+            // Function to navigate to the previous topic
+            function prevTopic() {
+                topics[currentTopic].classList.remove('active'); // Hide current topic
+                currentTopic = (currentTopic - 1 + topics.length) % topics.length; // Move to the previous topic
+                topics[currentTopic].classList.add('active'); // Show previous topic
+                topics[currentTopic].scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scroll to it
+            }
+        </script>
+
+
+        </section>
+      </div>
+      <footer style="font-family: 'Open Sans', sans-serif ; text-align: center;  ">
+        <p class="mt-4 text-base" >&copy; 2024 sw.edu. All rights reserved.</p>
+
+        <a class="footerL" href="{% url 'about' %}" >About</a> |
+        <a class="footerL" href="{% url 'contact' %}">Contact</a> |
+        <a class="footerL" href="{% url 'privacy_policy' %}">Privacy Policy</a>
+
+    </footer>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.classList.toggle('active');
+      }
+
+
+    </script>
+
+  </body>
+</html>

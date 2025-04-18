@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/add_videos.css' %}">
+  </head>
+  <body>
+    <div id="web">
+        <div class="w-[800px] min-h-[600px] bg-white shadow-lg rounded-lg p-8">
+            <header class="mb-6">
+                <h1 class="text-4xl font-title text-neutral-950">Upload Your {{role}} Video</h1>
+                <br>
+                {% if message %}
+  <small id="message" style="color: forestgreen;" class="block text-lg font-semibold text-neutral-900 mb-2">
+    {{ message }}
+  </small>
+
+  <script>
+    // Wait for the page to fully load
+    window.onload = function() {
+      // Get the message element by its ID
+      var messageElement = document.getElementById('message');
+
+      // Set a timeout to hide the message after 3 seconds (3000ms)
+      setTimeout(function() {
+        // Fade the message out by setting opacity to 0
+        messageElement.style.transition = 'opacity 0.5s ease-out';
+        messageElement.style.opacity = '0';
+
+        // Optionally, hide it completely after the fade
+        setTimeout(function() {
+          messageElement.style.display = 'none';
+        }, 500);  // Matches the fade duration
+      }, 1000);  // 3000ms = 3 seconds
+    };
+  </script>
+{% endif %}
+
+            </header>
+            <form action="upload_videos" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="role" value="{{ role }}">
+                <section class="mb-6">
+                    <label class="block text-lg font-semibold text-neutral-900 mb-2" for="video-upload">
+                        Choose a video to upload:
+                    </label>
+                    <input type="text" name="title" placeholder="Enter video title" class="block w-full bg-neutral-100 border border-neutral-300 rounded-md p-3" required/>
+                    <br>
+                    <input type="file" name="video_file" id="video-upload" accept="video/*" class="block w-full bg-neutral-100 border border-neutral-300 rounded-md p-3" required/>
+                </section>
+                <section class="flex justify-end">
+                  <button style="float: left ;" class="bg-primary-500 text-primary-950 font-semibold py-2 px-6 rounded-md">
+                   <a style="text-decoration: none;" href="{% url 'back_admin' %}">Home</a>
+                 </button>
+                 <br>
+                    <button class="bg-primary-500 text-primary-950 font-semibold py-2 px-6 rounded-md">
+                        Upload Video
+                    </button>
+
+                </section>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

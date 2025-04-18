@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/view_test.css' %}">
+
+  </head>
+  <body>
+    <div id="web">
+      <div class="w-[900px] min-h-[800px] shadow-lg rounded-lg bg-neutral-50 p-8 mx-auto">
+        <form action="view_score" method="post">
+          {% csrf_token %}
+        <header class="mb-8">
+          <h1 class="text-3xl font-title text-primary">{{ role }} Quiz Assessment</h1>
+          <input type="hidden" name="role" value="{{role}}">
+          {% if tests %}
+          <p class="text-lg text-neutral-700">Please answer the following questions carefully. All questions are based to {{ role }}.
+          </p>
+          {% else %}
+          <p class="text-lg text-neutral-700">No {{role}} questions available at the moment for this  quiz. We will  notify shortly, Please monitor our  announcements section for updates.
+
+          </p>
+          {% endif %}
+        </header>
+
+        <section class="space-y-8">
+          {% for test in tests %}
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold">{{ forloop.counter }}. {{ test.Question }}?</h2>
+            <div class="space-y-2">
+              <label class="flex items-center">
+                <input type="radio" name="{{test.id }}" value="1" class="mr-2 rounded-full" required/>
+                <span>{{ test.Option1 }}</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="{{test.id }}" value="2" class="mr-2 rounded-full" required/>
+                <span>{{ test.Option2 }}</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="{{test.id }}" value="3" class="mr-2 rounded-full" required/>
+                <span>{{ test.Option3 }}</span>
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="{{test.id }}" value="4" class="mr-2 rounded-full" required/>
+                <span>{{ test.Option4 }}</span>
+              </label>
+            </div>
+          </div>
+          {% endfor %}
+        </section>
+
+        <footer class="mt-8">
+          {% if tests %}
+          <button type="submit"  style="border: none; width: 200px;" class="bg-primary text-neutral-50 font-semibold py-2 px-4 rounded-md">
+            Submit Test
+          </button>
+          <br>
+          {% endif %}
+        </footer>
+      </form>
+      <br>
+      <a href="{% url 'back_user' %}">
+        <button type="submit"  style="border: none; width: 200px; color: black;background-color: rgb(148, 128, 128);" class="bg-primary text-neutral-50 font-semibold py-2 px-4 rounded-md">
+         Home
+        </button>
+      </a>
+      </div>
+    </div>
+  </body>
+
+</html>

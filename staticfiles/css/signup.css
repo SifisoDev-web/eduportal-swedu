@@ -1,0 +1,194 @@
+ @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+        @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+
+        * {
+            border: 0 solid #e5e7eb;
+            box-sizing: border-box;
+        }
+        :after,
+        :before {
+            --tw-content: "";
+        }
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            font-family: Open Sans, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            tab-size: 4;
+        }
+        body {
+            line-height: inherit;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 150vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #9ca3af;
+            padding-top: 50px;
+            background-color:#e69a64;
+
+        }
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font-family: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            letter-spacing: inherit;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        button,
+        input:where([type="button"]),
+        input:where([type="reset"]),
+        input:where([type="submit"]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+        }
+        hr {
+            border-top-width: 1px;
+            color: inherit;
+            height: 0;
+        }
+
+        /* Webcrumbs styles */
+        #web .mb-1 {
+            margin-bottom: 10px;
+        }
+        #web .mb-4 {
+            margin-bottom: 16px;
+        }
+        #web .mt-4 {
+            margin-top: 16px;
+        }
+        #web .flex {
+            display: flex;
+        }
+        #web .min-h-\[600px\] {
+            min-height: 700px;
+        }
+        #web .w-\[400px\] {
+            width: 400px;
+        }
+        #web .w-full {
+            width: 100%;
+        }
+        #web .flex-col {
+            flex-direction: column;
+        }
+        #web .gap-4 {
+            gap: 12px;
+        }
+       #web .rounded-lg {
+        border-radius: 10px;
+      }
+      #web .rounded-md {
+        border-radius: 10px;
+      }
+        #web .border {
+            border-width: 2px;
+        }
+        #web .border-neutral-300 {
+            border-color: rgb(232 232 232);
+        }
+        #web .bg-neutral-50 {
+            background-color: rgb(255 255 255);
+        }
+        #web .bg-primary {
+            background-color: rgb(250 91 48);
+        }
+        #web .p-6 {
+            padding: 24px;
+        }
+        #web .px-3 {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        #web .px-4 {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        #web .py-2 {
+            padding-bottom: 8px;
+            padding-top: 8px;
+        }
+        #web .text-center {
+            text-align: center;
+        }
+        #web .font-title {
+            font-family: Lato, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+        #web .text-2xl {
+            font-size: 24px;
+            line-height: 32px;
+        }
+        #web .text-neutral-50 {
+            color: rgb(255 255 255);
+        }
+        #web .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .text-primary {
+            color: #FA5B30;
+        }
+        .mt-4 {
+            padding: 0px 0px 0px 20px;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+        #web .w-\[400px\] {
+            width: 100%;
+          padding: 10px;
+          margin:90px;
+          border-radius: 23px;
+          margin-top: -50px;
+
+        }
+
+            #web .min-h-\[600px\] {
+                min-height: auto;
+
+            }
+
+            body {
+                padding: 5px;
+                background-image: none;
+                background-color:#e69a64;
+
+            }
+        }
+
+        @media (max-width: 480px) {
+            #web h1.text-2xl {
+                font-size: 20px;
+            }
+
+            #web button.w-full {
+                font-size: 14px;
+                padding: 12px;
+            }
+            #web .p-6 {
+          padding: 10px;
+          margin-left: -1px;
+        }
+        }
+        .sticker {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.sticker img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}

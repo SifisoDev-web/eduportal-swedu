@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/delete_videos.css' %}">
+  </head>
+  <body>
+    <div id="web">
+      <div style="padding: 14px;  " >
+    	  <header class="flex justify-between items-center mb-6">
+    	    <h1 class="text-3xl font-title">Delete {{role}} videos here</h1>
+    	  </header>
+        <button style=" background-color:rgb(148, 128, 128) ;border-radius: 5px; width: 100px;height: 30px;  border: none; float: right 75%;  margin-bottom: 10px;">
+          <a style="text-decoration: none; color: black;" href="{% url 'back_admin' %}">Home</a>
+        </button>
+        <input type="hidden" name="role" value="{{role}}">
+
+
+          {% if videos %}
+          {% for video in videos %}
+    	    <section class="col-span-2" style="width: 75%;">
+    	       <form action="delete_videos" method="post">
+                {% csrf_token %}
+    	         <video controls="controls"   class="bg-neutral-900 text-neutral-50 h-[400px] w-full flex items-center justify-center rounded-lg">
+                 <source src="{{video.video_file.url}}" type="video/mp4" />
+               </video>
+               <input type="hidden" name="role" value="{{role}}">
+               <input type="hidden" name="id" value="{{video.id}}">
+    	      <h2  class="text-xl mt-4">{{video.title}}</h2>
+
+              <button style=" background-color:rgba(217, 15, 15, 0.751) ;border-radius: 5px; width: 100px;height: 30px;  border: none; float: right 75%;  margin-bottom: 10px;">
+                Delete
+                </button>
+            </form>
+    	    </section>
+            {% endfor %}
+            {% else %}
+            <section class="col-span-2">
+               <h2 class="text-xl mt-4">Apologies, no videos have been posted yet.</h2>
+
+
+             </section>
+             {% endif %}
+
+
+      </div>
+    	</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Your Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/view_score.css' %}">
+  </head>
+  <body>
+    <div class="container" >
+      <h1>Scores for {{ role }}</h1>
+      <div class="grid">
+        <div class="box"  >
+          <h2>Total Questions</h2>
+          <p>{{total_questions}}</p>
+        </div>
+        <div class="box">
+          <h2>Correct Answers</h2>
+          <p>{{score}}</p>
+        </div>
+      </div>
+      {% if percentage >= 50.0 %}
+      <div class="score" style="border-radius: 10px; background-color: green;">
+        <h2>Score Percentage</h2>
+        <p>{{percentage}}%</p>
+      </div>
+      {% else %}
+      <div class="score" style="border-radius: 10px; background-color:   red;">
+        <h2>Score Percentage</h2>
+        <p>{{percentage}}%</p>
+      </div>
+      {% endif%}
+
+      <div class="button-container">
+        <a href="{% url 'back_user' %}">
+          <button style="text-decoration: none; border-radius: 10px;" class="button">Go Home</button>
+        </a>
+
+      </div>
+    </div>
+  </body>
+</html>

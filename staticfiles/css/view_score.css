@@ -1,0 +1,117 @@
+* {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #9ca3af;
+        padding: 10px;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #111827;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .box {
+        background-color: #f3f4f6;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: none;
+      }
+
+      .box h2 {
+        font-size: 1.2rem;
+        color: #111827;
+        font-weight: none;
+      }
+
+      .box p {
+        font-size: 1.5rem;
+        font-weight:  none;
+        color: #111827;
+      }
+
+      .score {
+        background-color: #f8741b;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .score h2 {
+        font-size: 1.5rem;
+        font-weight: none;
+      }
+
+      .score p {
+        font-size: 3rem;
+        margin-top: 10px;
+        font-weight: none;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+      }
+
+      .button {
+        background-color: rgb(250, 91, 48);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (min-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .score h2 {
+          font-size: 2rem;
+
+        }
+
+        .score p {
+          font-size: 4rem;
+        }
+
+        .button {
+          padding: 15px 30px;
+          font-size: 1.2rem;
+        }
+      }

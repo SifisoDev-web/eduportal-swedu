@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform for Learning Programming</title>
+    <link rel="stylesheet" href="{% static 'css/add_anouc.css' %}">
+  </head>
+  <body>
+    <div id="web" style="border-bottom: 5px solid gray;  ">
+      <button style=" background-color:rgb(148, 128, 128) ;color: black; float: right;border-radius: 5px; margin-right: 20px;"><a href="{% url 'back_admin' %}">Home</a></button>
+
+    	<div  style="margin: 50px 0 0 0;" class="w-[600px] p-6 bg-neutral-50 rounded-lg shadow-md">
+    	  <h1 class="text-2xl font-title mb-6">Add New Announcements</h1>
+          <br>
+    	  <form action="add_Announcement" method="post">
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label for="question" class="block text-lg font-semibold mb-2">
+              Announcement
+            </label>
+            <textarea id="question" name="content" class="w-full p-3 border border-neutral-300 rounded-md focus:outline-none" rows="4" placeholder="Type the announcement/updates here..." required ></textarea>
+          </div>
+
+    	    <button type="submit" class="w-full bg-primary text-white py-2 rounded-md">
+                Send  Announcement
+    	    </button>
+    	  </form>
+    	</div>
+    </div>
+
+
+        <div id="web">
+          <div  style="margin: 50px 0 0 0;" class="w-[600px] p-6 bg-neutral-50 rounded-lg shadow-md">
+            {% if announcements %}
+            <h1 class="text-2xl font-title mb-6">Remove Announcement</h1>
+            {% else %}
+            <h1 class="text-2xl font-title mb-6">No announcements have been posted</h1>
+            {% endif %}
+            <br>
+            <form action="delete_Announcement" method="post">
+            {% csrf_token %}
+            {% for announcement in announcements %}
+                <input type="hidden" name="id" value="{{announcement.id}}">
+                <div style="border-top: 5px solid gray; " class="mb-4">
+                <p style="width: 50%;">{{announcement.contect}}</p>
+                <p>
+                  <small>{{announcement.time}}</small>
+                </p>
+                </div>
+                <button style="margin-bottom: 10px;" type="submit" class="w-full bg-primary text-white py-2 rounded-md">
+                    Delete Announcement
+                  </button>
+            {% endfor %}
+
+            </form>
+          </div>
+      </div>
+
+
+  </body>
+</html>

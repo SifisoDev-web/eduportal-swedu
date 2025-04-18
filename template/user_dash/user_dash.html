@@ -1,0 +1,166 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/user_dash.css' %}">
+     <style>
+      body{
+        margin: 40px;
+      }
+      .radio{
+        display: inline-flex;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 0 5px rgb(0, 0,0,0.25);
+      }
+      .radio__input{
+        display: none;
+      }
+      .radio__label{
+        padding: 8px 14px;
+        font-size: 14px;
+        color: aliceblue;
+        background: #fa5b30;
+        cursor: pointer;
+        transition:background 0.1s;
+      }
+      .radio__label:not(:last-of-type){
+        border-right: 1px solid black;
+      }
+      .radio__input:checked + .radio__label{
+        background: black;
+      }
+        </style>
+  </head>
+  <body>
+    <div id="web">
+      <div class="w-[1200px] min-h-[800px] bg-neutral-50 rounded-lg shadow-lg p-8">
+        <header class="flex justify-between items-center mb-8">
+          <img src="{% static 'images/logo.png' %}" alt="SW edu Logo" style="height:95px;padding-left:2px ;  width: 110px;">
+
+          <button class="bg-primary-500 text-white py-2 px-4 rounded-md"><a href="{% url 'home' %}">Log Out</a></button>
+        </header>
+
+        <section class="mb-8">
+          <h2 class="text-xl font-semibold mb-4">Test Options</h2>
+          <div class="grid grid-cols-3 gap-6">
+            <form action="view_test" method="post">
+              {% csrf_token %}
+            <div class="bg-neutral-100 rounded-md p-4">
+              <h3 class="font-semibold mb-2">Java Test</h3>
+              <input type="hidden" name="role" value="java">
+              <p class="text-sm mb-4">Take the scheduled Java test. </p>
+              <button class="bg-primary-500 text-white py-2 px-4 rounded-md">Start Test</button>
+            </div>
+           </form>
+           <form action="view_test" method="post">
+            {% csrf_token %}
+            <div class="bg-neutral-100 rounded-md p-4">
+              <h3 class="font-semibold mb-2">SQL Test</h3>
+              <input type="hidden" name="role" value="SQL">
+              <p class="text-sm mb-4">Take the scheduled SQL test. </p>
+              <button class="bg-primary-500 text-white py-2 px-4 rounded-md">Start Test</button>
+            </div>
+          </form>
+          <form action="view_test" method="post">
+            {% csrf_token %}
+            <div class="bg-neutral-100 rounded-md p-4">
+              <h3 class="font-semibold mb-2">Python Test</h3>
+              <input type="hidden" name="role" value="python">
+              <p class="text-sm mb-4">Take the scheduled Python test. </p>
+              <button class="bg-primary-500 text-white py-2 px-4 rounded-md">Start Test</button>
+            </div>
+          </form>
+          </div>
+        </section>
+        <form action="view_videos" method="post">
+          {% csrf_token %}
+        <div class="bg-neutral-100 rounded-md p-4">
+          <h3 class="font-semibold mb-2">Videos </h3>
+          <p class="text-sm mb-4">open videos. </p>
+          <div class="radio">
+          <input class="radio__input"  type="radio" name="role" value="java" id="myRadio1" required />
+          <label class="radio__label" for="myRadio1">java</label>
+          <input class="radio__input"  type="radio" name="role" value="SQL" id="myRadio2"  required/> 
+          <label class="radio__label" for="myRadio2">SQL</label>
+          <input class="radio__input"  type="radio" name="role"   value="python" id="myRadio3" required/>
+          <label class="radio__label" for="myRadio3">python</label>
+        </div>
+          <br> 
+          <br> 
+          <button class="bg-primary-500 text-white py-2 px-4 rounded-md"> Watch Videos</button>
+        </div>
+      </form>
+        <br>
+        <div class="bg-neutral-100 rounded-md p-4">
+          <h3 class="font-semibold mb-2">Announcement </h3>
+          {% if announcements %}
+          <p class="text-sm mb-4"> You have {{countA}} new announcement. Please review them to ensure you don't miss important information </p>
+          {% else %}
+          <p class="text-sm mb-4">No announcements are currently available. Please check back soon</p>
+          {% endif%}
+          <details style="margin-left: -16px;" class="bg-neutral-100 rounded-md p-4">
+           <summary  class="cursor-pointer font-semibold mb-2"> View Announcement </summary>
+            {% for announcement in announcements %}
+           <div style="border-bottom: 1px solid gray;" class="mt-4 space-y-4">
+              <div class="flex justify-between">
+                <p style="width: 50%;">{{announcement.contect}}</p>
+                <p>
+                  <small>{{announcement.time}}</small>
+                </p>
+
+              </div>
+            </div>
+            {% endfor %}
+          </details>
+
+        </div>
+
+        <section class="mb-8">
+          <h2 class="text-xl font-semibold mb-4">Grade Options</h2>
+          <div class="relative">
+            <details class="bg-neutral-100 rounded-md p-4">
+              <summary class="cursor-pointer font-semibold mb-2">View Grades</summary>
+              <div class="mt-4 space-y-4">
+                {% if java_score or SQL_score or python_score %}
+
+                  <div class="flex justify-between">
+                    {% if java_score %}
+                      <span>Java Grade: {{ java_score.score }}%</span>
+                      <small style="padding-left: 10px;">{{ java_score.updated_at }}</small>
+                    {% endif %}
+                  </div>
+                  <div class="flex justify-between">
+                    {% if SQL_score %}
+                      <span>SQL Grade: {{ SQL_score.score }}%</span>
+                      <small style="padding-left: 10px;">{{ SQL_score.updated_at }}</small>
+                    {% endif %}
+                  </div>
+                  <div class="flex justify-between">
+                    {% if python_score %}
+                      <span>Python Grade: {{ python_score.score }}%</span>
+                      <small style="padding-left: 10px;">{{ python_score.updated_at }}</small>
+                    {% endif %}
+                  </div>
+                {% else %}
+                  <div class="flex justify-between">
+                    <span>No grade available</span>
+                  </div>
+                {% endif %}
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+        <footer class="text-center text-sm text-neutral-600 mt-auto">
+          © 2024 Sifiso. All rights reserved. | Student Dashboard,
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

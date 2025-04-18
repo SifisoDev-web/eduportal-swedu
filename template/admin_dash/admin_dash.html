@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - swedu</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dash.css' %}" />
+    <style>
+      body {
+        margin: 40px;
+      }
+      .radio {
+        display: inline-flex;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 0 5px rgb(0, 0, 0, 0.25);
+      }
+      .radio__input {
+        display: none;
+      }
+      .radio__label {
+        padding: 8px 14px;
+        font-size: 14px;
+        color: aliceblue;
+        background: #fa5b30;
+        cursor: pointer;
+        transition: background 0.1s;
+      }
+      .radio__label:not(:last-of-type) {
+        border-right: 1px solid black;
+      }
+      .radio__input:checked + .radio__label {
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="web">
+      <div class="w-[1200px] min-h-[700px] bg-neutral-50 p-6 rounded-lg shadow-lg">
+        <header class="flex items-center justify-between mb-8">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="SW edu Logo"
+            style="height: 95px; padding-left: 2px; width: 110px"
+          />
+          <button style="font-weight: bold" class="bg-primary px-6 py-2 rounded-md">
+            <a href="signout">Log Out</a>
+          </button>
+        </header>
+
+        <main class="grid grid-cols-3 gap-6">
+          <!-- Add Tests Form -->
+          <form action="add_tests" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">Tests</h2>
+              <p>Manage and create tests here.</p>
+              <div class="radio">
+                <input class="radio__input" type="radio" name="role1" value="java" id="addTestJava" required />
+                <label class="radio__label" for="addTestJava">Java</label>
+                <input class="radio__input" type="radio" name="role1" value="SQL" id="addTestSQL" required />
+                <label class="radio__label" for="addTestSQL">SQL</label>
+                <input class="radio__input" type="radio" name="role1" value="python" id="addTestPython" required />
+                <label class="radio__label" for="addTestPython">Python</label>
+              </div>
+              <button class="bg-neutral-100 text-primary rounded-md px-6 py-2">Add Tests</button>
+            </div>
+          </form>
+
+          <!-- View Tests Form -->
+          <form action="view_adminTest" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">View Tests</h2>
+              <p>CRUD test.</p>
+              <div class="radio">
+                <input class="radio__input" type="radio" name="role2" value="java" id="viewTestJava" required />
+                <label class="radio__label" for="viewTestJava">Java</label>
+                <input class="radio__input" type="radio" name="role2" value="SQL" id="viewTestSQL" required />
+                <label class="radio__label" for="viewTestSQL">SQL</label>
+                <input class="radio__input" type="radio" name="role2" value="python" id="viewTestPython" required />
+                <label class="radio__label" for="viewTestPython">Python</label>
+              </div>
+              <button class="bg-neutral-100 text-primary rounded-md px-6 py-2">View Tests</button>
+            </div>
+          </form>
+
+          <!-- Add Videos Form -->
+          <form action="add_videos" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">Add Videos</h2>
+              <p>Add videos.</p>
+              <div class="radio">
+                <input class="radio__input" type="radio" name="role3" value="java" id="addVideoJava" required />
+                <label class="radio__label" for="addVideoJava">Java</label>
+                <input class="radio__input" type="radio" name="role3" value="SQL" id="addVideoSQL" required />
+                <label class="radio__label" for="addVideoSQL">SQL</label>
+                <input class="radio__input" type="radio" name="role3" value="python" id="addVideoPython" required />
+                <label class="radio__label" for="addVideoPython">Python</label>
+              </div>
+              <button class="bg-neutral-100 text-primary rounded-md px-6 py-2">Add Videos</button>
+            </div>
+          </form>
+
+          <!-- Delete Videos Form -->
+          <form action="deleteView_videos" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">Delete Videos</h2>
+              <p>Delete videos.</p>
+              <div class="radio">
+                <input class="radio__input" type="radio" name="role4" value="java" id="deleteVideoJava" required />
+                <label class="radio__label" for="deleteVideoJava">Java</label>
+                <input class="radio__input" type="radio" name="role4" value="SQL" id="deleteVideoSQL" required />
+                <label class="radio__label" for="deleteVideoSQL">SQL</label>
+                <input class="radio__input" type="radio" name="role4" value="python" id="deleteVideoPython" required />
+                <label class="radio__label" for="deleteVideoPython">Python</label>
+              </div>
+              <button class="bg-neutral-100 text-primary rounded-md px-6 py-2">Delete Videos</button>
+            </div>
+          </form>
+
+          <!-- View Grade Form -->
+          <form action="view_grade" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">Grades</h2>
+              <p>Track and manage students&#x27; grades.</p>
+              <button style="margin-top: 71px" class="bg-neutral-100 text-primary rounded-md px-6 py-2">
+                View Grade
+              </button>
+            </div>
+          </form>
+
+          <!-- Announcements Form -->
+          <form action="view_announcement" method="post">
+            {% csrf_token %}
+            <div class="bg-primary p-4 rounded-md h-[200px]">
+              <h2 class="text-xl font-medium">Announcement</h2>
+              <p>Add/Delete Announcement.</p>
+              <button style="margin-top: 71px" class="bg-neutral-100 text-primary rounded-md px-6 py-2">
+                Add Announcements
+              </button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

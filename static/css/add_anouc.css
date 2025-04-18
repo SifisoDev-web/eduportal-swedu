@@ -1,0 +1,378 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+
+      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+      /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+      *,
+      :after,
+      :before {
+        border: 0 solid #e5e7eb;
+        box-sizing: border-box;
+      }
+      :after,
+      :before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        font-family:
+          Open Sans,
+          ui-sans-serif,
+          system-ui,
+          sans-serif,
+          Apple Color Emoji,
+          Segoe UI Emoji,
+          Segoe UI Symbol,
+          Noto Color Emoji;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        line-height: inherit;
+        margin: 0;
+      }
+      hr {
+        border-top-width: 1px;
+        color: inherit;
+        height: 0;
+      }
+      abbr:where([title]) {
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family:
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          Liberation Mono,
+          Courier New,
+          monospace;
+        font-feature-settings: normal;
+        font-size: 1em;
+        font-variation-settings: normal;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        border-collapse: collapse;
+        border-color: inherit;
+        text-indent: 0;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        color: inherit;
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-size: 100%;
+        font-variation-settings: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+      }
+      fieldset,
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9ca3af;
+        opacity: 1;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+
+      [hidden] {
+        display: none;
+      }
+      *,
+
+      #web .mb-1 {
+        margin-bottom: 4px;
+      }
+      #web .mb-2 {
+        margin-bottom: 8px;
+      }
+      #web .mb-4 {
+        margin-bottom: 16px;
+      }
+      #web .mb-6 {
+        margin-bottom: 24px;
+      }
+      #web .block {
+        display: block;
+      }
+      #web .flex {
+        display: flex;
+      }
+      #web .w-\[600px\] {
+        width: 600px;
+      }
+      #web .w-full {
+        width: 100%;
+      }
+      #web .flex-row {
+        flex-direction: row;
+      }
+      #web .items-center {
+        align-items: center;
+      }
+      #web .justify-between {
+        justify-content: space-between;
+      }
+      #web .gap-4 {
+        gap: 16px;
+      }
+      #web .rounded-lg {
+        border-radius: 1px;
+      }
+      #web .rounded-md {
+        border-radius: 1px;
+      }
+      #web .border {
+        border-width: 1px;
+      }
+      #web .border-neutral-300 {
+        --tw-border-opacity: 1;
+        border-color: rgb(232 232 232 / var(--tw-border-opacity));
+      }
+      #web .bg-neutral-50 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+      }
+      #web .bg-primary {
+        --tw-bg-opacity: 1;
+        background-color: rgb(250 91 48 / var(--tw-bg-opacity));
+      }
+      #web .p-2 {
+        padding: 8px;
+      }
+      #web .p-3 {
+        padding: 12px;
+      }
+      #web .p-6 {
+        padding: 24px;
+      }
+      #web .py-2 {
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+      #web .font-title {
+        font-family:
+          Lato,
+          ui-sans-serif,
+          system-ui,
+          sans-serif,
+          Apple Color Emoji,
+          Segoe UI Emoji,
+          Segoe UI Symbol,
+          Noto Color Emoji;
+      }
+      #web .text-2xl {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      #web .text-lg {
+        font-size: 18px;
+        line-height: 28px;
+      }
+      #web .text-sm {
+        font-size: 14px;
+        line-height: 20px;
+      }
+      #web .font-semibold {
+        font-weight: 600;
+      }
+      #web .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity));
+      }
+      #web .shadow-md {
+        --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+          0 2px 4px -2px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      #web {
+        font-family: Open Sans !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+      }
+      #web :is(.bg-neutral-50) {
+        color: rgba(0, 0, 0, 0.9) !important;
+      }
+      #web .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+       button,a{
+        text-decoration: none;
+        color:  rgb(0, 0, 0);
+
+        width: 120px;
+        margin: auto;
+
+      }
+      @media (max-width: 768px) {
+            #web .w-\[600px\] {
+                width: 90%; /* Adjust width for tablets */
+            }
+
+            #web .text-2xl {
+                font-size: 20px; /* Smaller heading */
+            }
+
+            #web .text-lg {
+                font-size: 16px; /* Adjust text size for smaller screens */
+            }
+
+            button, input, select, textarea {
+                padding: 10px; /* Smaller padding */
+                font-size: 14px; /* Smaller font size */
+
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            #web .w-\[600px\] {
+                width: 100%; /* Full width for mobile */
+            }
+
+            #web .text-2xl {
+                font-size: 18px; /* Smaller heading */
+            }
+
+            button, input, select, textarea {
+                padding: 8px; /* Smaller padding */
+                font-size: 12px; /* Smaller font size */
+            }
+            button{
+              padding:  4px;
+              margin-top: 4px;
+
+              margin-bottom: 40px;
+            }
+          }

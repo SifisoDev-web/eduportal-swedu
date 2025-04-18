@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+        @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+        body{
+            font-family: 'Open Sans', sans-serif;
+        }
+        .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+.footerL {
+        text-align: center;
+
+        color: rgb(250, 91, 48);
+        gap: 10px;
+        transition: text-decoration 0.5s ease ;
+      }
+
+h1, h2 {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main class="container">
+        <h1>Privacy Policy</h1>
+<p style="border-bottom: 2px solid black; font-size: 0.9em; color: #555;">Last updated on 30 December 2024</p>
+
+<section style="border-bottom: 2px solid black; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2>Information Collection</h2>
+    <p>At SW Edu, we are committed to protecting your privacy. We collect only the information necessary for you to use our services effectively. This includes your email address for login purposes and communication. We do not collect unnecessary personal data or sensitive information.</p>
+</section>
+
+<section style="border-bottom: 2px solid black; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2>Use of Information</h2>
+    <p>Your email address is used solely for account creation, secure login, password recovery, and occasional updates about our services. We ensure that all communication is relevant and limited. Your email will not be used for unsolicited marketing or spam.</p>
+</section>
+
+<section style="border-bottom: 2px solid black; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2>Sharing and Disclosure</h2>
+    <p>We value your trust and will never sell or share your email address or personal information with third parties without your explicit consent. Exceptions may include complying with legal obligations or responding to requests from regulatory authorities.</p>
+</section>
+
+<section style="border-bottom: 2px solid black; padding-bottom: 15px; margin-bottom: 20px;">
+    <h2>Email Security</h2>
+    <p>Your email address is securely stored in our system and is protected by robust encryption methods. We implement industry-standard practices to safeguard your data from unauthorized access or breaches. You can rest assured that your information is handled with the utmost care and confidentiality.</p>
+</section>
+
+<section>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us at <a href="mailto:code.swedu@gmail.com" style="color: #dc4a28;">code.swedu@gmail.com</a>.</p>
+</section>
+
+
+
+        <footer style="padding-top: 20px;">
+            <a class="footerL" href="{% url 'home' %}">Back to Home</a>
+        </footer>
+    </main>
+</body>
+</html>

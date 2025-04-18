@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Users Grades - swedu</title>
+
+
+     <link rel="stylesheet" href="{% static 'css/grades.css' %}">
+  </head>
+  <body>
+    <div id="webcrumbs">
+      <div class="container">
+        {% if student_grades %}
+        <h1>Student Grades Report</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Java</th>
+              <th>SQL</th>
+              <th>Python</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for student_grade in student_grades %}
+            <tr>
+              <td data-label="Username">{{student_grade.user}}</td>
+              <td data-label="Java">{{student_grade.java_score}}</td>
+              <td data-label="SQL">{{student_grade.SQL_score}}</td>
+              <td data-label="Python">{{student_grade.python_score}}</td>
+            </tr>
+            {% endfor %}
+             {% else %}
+             <h1>No student grades found at the moment.</h1>
+             {% endif%}
+          </tbody>
+        </table>
+        <button style=" background-color:rgb(148, 128, 128) ;border-radius: 5px; width: 100px;height: 30px;  border: none; margin-right: 20px; margin-left: 20px;margin-top: 10px;">
+          <a style="text-decoration: none; color: black;" href="{% url 'back_admin' %}">Home</a></button>
+      </div>
+
+    </div>
+  </body>
+</html>

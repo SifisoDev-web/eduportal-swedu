@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login to Your Account - sw|edu</title>
+   <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          window.addEventListener("popstate", function() {
+              window.location.href = "{% url 'home' %}";
+          });
+      });
+  </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div id="web">
+      <div class="w-[400px] bg-neutral-50 rounded-lg shadow-lg p-6 min-h-[600px] mx-4">
+        <div class="sticker">
+          <img src="{% static 'images/computer-engineer.png' %}" alt="Sticker">
+          <h1 class="text-2xl font-title mb-4" style="font-weight: bold;">Login</h1>
+        </div>
+
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+         <span style="color: #FA5B30;">{{message}}</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+        <br>
+
+        <form class="flex flex-col gap-4" action="signin" method="post">
+          {% csrf_token %}
+          <label>
+            <span class="block mb-1">Username</span>
+            <input type="text" name="username" class="w-full p-2 border border-neutral-300 rounded-md" placeholder="Enter your username" required/>
+          </label>
+          <label>
+            <span class="block mb-1">Password</span>
+            <div style="position: relative;">
+              <input type="password" name="password1" id="password" class="w-full p-2 border border-neutral-300 rounded-md" placeholder="Enter your password" required/>
+              <button type="button" onclick="togglePassword()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                <img id="toggle-icon" src="{% static 'images/close-eye.png' %}" alt="Toggle Password" style="width: 20px; height: 20px;">
+              </button>
+            </div>
+          </label>
+
+          <a href="{% url 'password_reset'  %}" style="color: #FA5B30;" class="text-primary-500 text-sm">Forgot password?</a>
+
+          <button type="submit" class="w-full bg-primary text-neutral-50 py-2 rounded-md">Login</button>
+          <p class="mt-4 text-sm">Don't have an account? <a href="{% url 'signup'  %}" class="text-primary font-bold ml-1">SignUp</a> </p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggle-icon");
+
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleIcon.src = "{% static 'images/eye.png' %}"
+        } else {
+          passwordField.type = "password";
+          toggleIcon.src = "{% static 'images/close-eye.png' %}";
+        }
+      }
+    </script>
+  </body>
+</html>

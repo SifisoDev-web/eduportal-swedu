@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Platform for Learning Programming</title>
+
+     <link rel="stylesheet" href="{% static 'css/update_test.css' %}">
+  </head>
+  <body>
+    <div id="web">
+    	<div  style="margin: 50px 0 0 0;" class="w-[600px] p-6 bg-neutral-50 rounded-lg shadow-md">
+    	  <h1 class="text-2xl font-title mb-6">Add New Test Question for {{role}}</h1>
+        <button style="border: 1px solid saddlebrown;"><a href="{% url 'view_adminTest' %}">Admin Home</a></button>
+
+    	  <form action="update" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="role" value="{{role}}">
+          <input type="hidden" name="id" value="{{id}}">
+
+    	    <div class="mb-4">
+    	      <label for="question" class="block text-lg font-semibold mb-2">
+    	        Question
+    	      </label>
+    	      <textarea id="question" name="question" class="w-full p-3 border border-neutral-300 rounded-md focus:outline-none" rows="4" placeholder="Type the test question here..."></textarea>
+    	    </div>
+
+    	    <div class="mb-4">
+    	      <h2 class="text-lg font-semibold mb-2">Options</h2>
+
+    	      <div class="mb-2">
+    	        <label for="option1" class="block text-sm font-semibold mb-1">Option 1</label>
+    	        <input type="text" id="option1" name="option1" class="w-full p-2 border border-neutral-300 rounded-md focus:outline-none" placeholder="Enter option 1"/>
+    	      </div>
+
+    	      <div class="mb-2">
+    	        <label for="option2" class="block text-sm font-semibold mb-1">Option 2</label>
+    	        <input type="text" id="option2" name="option2" class="w-full p-2 border border-neutral-300 rounded-md focus:outline-none" placeholder="Enter option 2"/>
+    	      </div>
+
+    	      <div class="mb-2">
+    	        <label for="option3" class="block text-sm font-semibold mb-1">Option 3</label>
+    	        <input type="text" id="option3" name="option3" class="w-full p-2 border border-neutral-300 rounded-md focus:outline-none" placeholder="Enter option 3"/>
+    	      </div>
+
+    	      <div class="mb-2">
+    	        <label for="option4" class="block text-sm font-semibold mb-1">Option 4</label>
+    	        <input type="text" id="option4" name="option4" class="w-full p-2 border border-neutral-300 rounded-md focus:outline-none" placeholder="Enter option 4"/>
+
+    	      </div>
+    	    </div>
+
+    	    <div class="mb-6">
+    	      <label for="correct-option" class="block text-lg font-semibold mb-2">
+    	        Correct Option
+    	      </label>
+    	      <select id="correct-option" name="correct-option" class="w-full p-2 border border-neutral-300 rounded-md focus:outline-none">
+    	        <option value="1">Option 1</option>
+    	        <option value="2">Option 2</option>
+    	        <option value="3">Option 3</option>
+    	        <option value="4">Option 4</option>
+    	      </select>
+    	    </div>
+
+    	    <button type="submit" class="w-full bg-primary text-white py-2 rounded-md">
+    	    Add Question
+    	    </button>
+    	  </form>
+    	</div>
+    </div>
+
+  </body>
+</html>

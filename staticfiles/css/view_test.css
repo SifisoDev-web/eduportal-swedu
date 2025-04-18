@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+      /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Open Sans, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      #web .mb-8 {
+        margin-bottom: 32px;
+      }
+      #web .mr-2 {
+        margin-right: 8px;
+      }
+      #web .mt-8 {
+        margin-top: 32px;
+      }
+      #web .flex {
+        display: flex;
+      }
+      #web .min-h-\[800px\] {
+        min-height: 800px;
+      }
+      #web .w-full {
+        width: 100%;
+      }
+      #web .flex-row {
+        flex-direction: row;
+      }
+      #web .items-center {
+        align-items: center;
+      }
+      #web .justify-between {
+        justify-content: space-between;
+      }
+      #web .gap-4 {
+        gap: 16px;
+      }
+      #web .rounded-full {
+        border-radius: 9999px;
+      }
+      #web .rounded-lg {
+        border-radius: 2px;
+      }
+      #web .rounded-md {
+        border-radius: 2px;
+      }
+      #web .bg-neutral-50 {
+        background-color: rgb(255, 255, 255);
+      }
+      #web .bg-primary {
+        background-color: rgb(250, 91, 48);
+      }
+      #web .object-cover {
+        object-fit: cover;
+      }
+      #web .p-8 {
+        padding: 32px;
+      }
+      #web .px-4 {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      #web .py-2 {
+        padding-bottom: 8px;
+        padding-top: 8px;
+      }
+      #web .font-title {
+        font-family: Lato, sans-serif;
+      }
+      #web .text-3xl {
+        font-size: 1.875rem;
+      }
+      #web .text-lg {
+        font-size: 1.125rem;
+      }
+      #web .text-xl {
+        font-size: 1.25rem;
+      }
+      #web .font-semibold {
+        font-weight: 600;
+      }
+      #web .text-neutral-50 {
+        color: rgb(255, 255, 255);
+      }
+      #web .text-neutral-700 {
+        color: rgb(77, 77, 77);
+      }
+      #web .text-primary {
+        color: rgb(250, 91, 48);
+      }
+
+      #web {
+        font-family: Open Sans !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+      }
+      #web :is(.bg-neutral-50) {
+        color: rgba(0, 0, 0, 0.9) !important;
+      }
+
+      /* Media Queries for responsive design */
+      @media (max-width: 1024px) {
+        #web .w-\[900px\] {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #web .text-3xl {
+          font-size: 1.5rem;
+        }
+        #web .text-xl {
+          font-size: 1.125rem;
+        }
+        #web .p-8 {
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        #web .p-8 {
+          padding: 12px;
+        }
+        #web .text-3xl {
+          font-size: 1.25rem;
+        }
+        #web .text-lg {
+          font-size: 1rem;
+        }
+      }
