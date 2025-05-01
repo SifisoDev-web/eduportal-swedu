@@ -32,3 +32,5 @@ To run it locally:
 ```bash
 git clone https://github.com/SifisoDev-web/eduportal-swedu.git
 cd eduportal-swedu
+python manage.py runserver
+
